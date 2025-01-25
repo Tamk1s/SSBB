@@ -5,13 +5,20 @@ using NaughtyAttributes;
 
 public class BallPhysics : MonoBehaviour
 {
+    [Range(0, 1)] public float currentSize;
+
     public Preset SmallestPreset;
     public Preset LargestPreset;
     public Preset CurrentPreset;
 
+    public float maxSpeed = 45;
+
     public Rigidbody rigid;
     public PhysicMaterial PhysMaterial;
     public Vector2 direction;
+
+    [ShowNonSerializedField]
+    float currentSpeed;
     
 
     [System.Serializable]
@@ -30,7 +37,7 @@ public class BallPhysics : MonoBehaviour
     //public bool isForward, isBackward, isLeft, isRight;
 
     [Button]
-    public void TestPreset()
+    public void DebugTestPreset()
     {
         rigid.mass = CurrentPreset.mass;
         rigid.angularDrag = CurrentPreset.angularDrag;
@@ -40,9 +47,32 @@ public class BallPhysics : MonoBehaviour
         PhysMaterial.staticFriction = CurrentPreset.staticFriction;
     }
 
+    public void Update()
+    {
+        updateSizeSettings();
+    }
+
+    public void updateSizeSettings()
+    {
+        rigid.mass = Mathf.Lerp(SmallestPreset.mass, LargestPreset.mass, currentSize);
+        rigid.angularDrag = Mathf.Lerp(SmallestPreset.angularDrag, LargestPreset.angularDrag, currentSize);
+        rigid.drag = Mathf.Lerp(SmallestPreset.drag, LargestPreset.drag, currentSize);
+        this.transform.localScale = Vector3.one * Mathf.Lerp(SmallestPreset.scale, LargestPreset.scale, currentSize); ;
+        PhysMaterial.dynamicFriction = Mathf.Lerp(SmallestPreset.dynamicFriction, LargestPreset.dynamicFriction, currentSize);
+        PhysMaterial.staticFriction = Mathf.Lerp(SmallestPreset.staticFriction, LargestPreset.staticFriction, currentSize);
+    }
+
+    public void clampSpeed()
+    {
+        if (currentSpeed > maxSpeed)
+            rigid.velocity = rigid.velocity / currentSpeed * maxSpeed;
+    }
+
     public void FixedUpdate()
     {
         rigid.AddForce(new Vector3(direction.x, 0, direction.y) * CurrentPreset.movementForce);
+        currentSpeed = rigid.velocity.magnitude;
+        clampSpeed();
     }
 
     [Button]

@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 686127241950261132}
+  - component: {fileID: 3909487704259644093}
   - component: {fileID: 6070007311609795788}
   - component: {fileID: 8323318267529137482}
   - component: {fileID: 3877695399017159634}
@@ -17,7 +18,6 @@ GameObject:
   - component: {fileID: 8608196106711834456}
   - component: {fileID: 720936704316116324}
   - component: {fileID: 2475067854781931861}
-  - component: {fileID: 3909487704259644093}
   m_Layer: 0
   m_Name: Ball
   m_TagString: Untagged
@@ -40,6 +40,47 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3909487704259644093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4031687634685503296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4361f178905c3b84cb38c2f2dd5b7d90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentSize: 0.5
+  SmallestPreset:
+    movementForce: 180
+    mass: 1
+    angularDrag: 0
+    drag: 0
+    scale: 3
+    staticFriction: 10
+    dynamicFriction: 0
+  LargestPreset:
+    movementForce: 80
+    mass: 3
+    angularDrag: 0.05
+    drag: 0
+    scale: 10
+    staticFriction: 0.6
+    dynamicFriction: 1
+  CurrentPreset:
+    movementForce: 80
+    mass: 3
+    angularDrag: 0.05
+    drag: 0
+    scale: 80
+    staticFriction: 0
+    dynamicFriction: 0
+  maxSpeed: 45
+  rigid: {fileID: 2550892744803664858}
+  PhysMaterial: {fileID: 13400000, guid: f886297158aeebc4aa6a4f490776b72a, type: 2}
+  direction: {x: 0, y: 0}
 --- !u!114 &6070007311609795788
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -160,7 +201,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!114 &8608196106711834456
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -246,43 +287,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   faceRoot: {fileID: 686127241950261132}
   catchupSpeed: 5
---- !u!114 &3909487704259644093
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4031687634685503296}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4361f178905c3b84cb38c2f2dd5b7d90, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SmallestPreset:
-    movementForce: 180
-    mass: 1
-    angularDrag: 0
-    drag: 0
-    scale: 3
-    staticFriction: 10
-    dynamicFriction: 0
-  LargestPreset:
-    movementForce: 80
-    mass: 3
-    angularDrag: 0.05
-    drag: 0
-    scale: 10
-    staticFriction: 0.6
-    dynamicFriction: 1
-  CurrentPreset:
-    movementForce: 80
-    mass: 3
-    angularDrag: 0.05
-    drag: 0
-    scale: 80
-    staticFriction: 0
-    dynamicFriction: 0
-  rigid: {fileID: 2550892744803664858}
-  PhysMaterial: {fileID: 0}
-  direction: {x: 0, y: 0}
-  baseMovementForce: 80

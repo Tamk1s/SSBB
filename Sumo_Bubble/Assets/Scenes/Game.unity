@@ -638,38 +638,6 @@ PrefabInstance:
       propertyPath: baseMovementForce
       value: 80
       objectReference: {fileID: 0}
-    - target: {fileID: 3909487704259644093, guid: a3b8b8af0058f1545976dbe395be0553, type: 3}
-      propertyPath: CurrentPreset.scale
-      value: 80
-      objectReference: {fileID: 0}
-    - target: {fileID: 3909487704259644093, guid: a3b8b8af0058f1545976dbe395be0553, type: 3}
-      propertyPath: LargestPreset.scale
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 3909487704259644093, guid: a3b8b8af0058f1545976dbe395be0553, type: 3}
-      propertyPath: SmallestPreset.mass
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3909487704259644093, guid: a3b8b8af0058f1545976dbe395be0553, type: 3}
-      propertyPath: SmallestPreset.angularDrag
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3909487704259644093, guid: a3b8b8af0058f1545976dbe395be0553, type: 3}
-      propertyPath: LargestPreset.staticFriction
-      value: 0.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 3909487704259644093, guid: a3b8b8af0058f1545976dbe395be0553, type: 3}
-      propertyPath: SmallestPreset.movementForce
-      value: 180
-      objectReference: {fileID: 0}
-    - target: {fileID: 3909487704259644093, guid: a3b8b8af0058f1545976dbe395be0553, type: 3}
-      propertyPath: LargestPreset.dynamicFriction
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3909487704259644093, guid: a3b8b8af0058f1545976dbe395be0553, type: 3}
-      propertyPath: SmallestPreset.staticFriction
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 4031687634685503296, guid: a3b8b8af0058f1545976dbe395be0553, type: 3}
       propertyPath: m_Name
       value: Ball
