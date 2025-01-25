@@ -173,17 +173,3 @@ public class GameManager : MonoBehaviour
         UnityEngine.Random.InitState(value);
     }
 }
-
-/*
-/// <summary>Characters to play as!@MODIFY ME
-/// </summary>
-public enum Characters
-{
-    EAGLE,
-    MIN = EAGLE,
-    BUNNY,
-    OWL,
-    DOG,
-    MAX = DOG
-};
-*/

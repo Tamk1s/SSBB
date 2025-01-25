@@ -20,7 +20,9 @@ public class Audio : MonoBehaviour
         SFX_NULL,                           //NULL SFX        
         SFX_MENU_HIGHLIGHT,                 //Menu higlight SFX
         SFX_MENU_SELECT,                    //Menu select SFX
-        SFX_TELEPORT,                       //Teleport SFX
+
+        SFX_PUMP,                           //Pump
+        SFX_BOOST,                          //Boost
         
         SFX_HIT_PLAYER,                     //Hit SFX (Player)
         SFX_DEATH_PLAYER,                   //Death SFX (Player)
@@ -32,10 +34,11 @@ public class Audio : MonoBehaviour
     private string[] sfx = new string[(int)(SFX.MAX)+1]
     {
         "NULL",
-        "MenuHighlight",            //Menu higlight SFX
-        "MenuSelect",               //Menu select SFX
-        "Teleport",                 //Teleport SFX
+        "MenuHighlight",           //Menu higlight SFX
+        "MenuSelect",              //Menu select SFX
 
+        "Pump",                    //Pump
+        "Boost",                   //Boost
         "Hit_Player",              //Hit SFX
         "Death_Player",            //Death SFX
         "Victory_Player",          //Victory SFX
