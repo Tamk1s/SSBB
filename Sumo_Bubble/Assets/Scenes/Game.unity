@@ -3805,6 +3805,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1546769143}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &1601701557 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 686127241950261132, guid: a3b8b8af0058f1545976dbe395be0553, type: 3}
+  m_PrefabInstance: {fileID: 9066111207113726242}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1663180378
 GameObject:
   m_ObjectHideFlags: 0
@@ -4329,6 +4334,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2475067854781931861, guid: a3b8b8af0058f1545976dbe395be0553, type: 3}
+      propertyPath: faceRoot
+      value: 
+      objectReference: {fileID: 1601701557}
     - target: {fileID: 4031687634685503296, guid: a3b8b8af0058f1545976dbe395be0553, type: 3}
       propertyPath: m_Name
       value: Ball

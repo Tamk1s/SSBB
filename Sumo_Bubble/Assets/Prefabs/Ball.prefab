@@ -269,5 +269,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b816770280533740a4cb7fd9bba6026, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  faceRoot: {fileID: 0}
+  faceRoot: {fileID: 686127241950261132}
   catchupSpeed: 5
