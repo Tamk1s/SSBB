@@ -192,7 +192,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4031687634685503296}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9063d0812137c5145b8d7100e4cf1207, type: 3}
   m_Name: 
@@ -239,7 +239,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4031687634685503296}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0b816770280533740a4cb7fd9bba6026, type: 3}
   m_Name: 
@@ -258,6 +258,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4361f178905c3b84cb38c2f2dd5b7d90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SmallestPreset:
+    movementForce: 180
+    mass: 1
+    angularDrag: 0
+    drag: 0
+    scale: 3
+    staticFriction: 10
+    dynamicFriction: 0
+  LargestPreset:
+    movementForce: 80
+    mass: 3
+    angularDrag: 0.05
+    drag: 0
+    scale: 10
+    staticFriction: 0.6
+    dynamicFriction: 1
+  CurrentPreset:
+    movementForce: 80
+    mass: 3
+    angularDrag: 0.05
+    drag: 0
+    scale: 80
+    staticFriction: 0
+    dynamicFriction: 0
   rigid: {fileID: 2550892744803664858}
+  PhysMaterial: {fileID: 0}
   direction: {x: 0, y: 0}
-  baseMovementForce: 10
+  baseMovementForce: 80
