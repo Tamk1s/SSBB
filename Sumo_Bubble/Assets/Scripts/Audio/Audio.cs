@@ -47,7 +47,11 @@ public class Audio : MonoBehaviour
     {
         VOX_NULL,
         VOX_TITLE,
-        MAX = VOX_TITLE + 0x01
+        VOX_MM_PLAY,
+        VOX_MM_OPTIONS,
+        VOX_MM_CREDITS,
+        VOX_MM_QUIT,
+        MAX = VOX_MM_QUIT + 0x01
     }
 
     /// <summary>Base filenames for each vox, aligned with VOX enum</summary>
@@ -55,6 +59,10 @@ public class Audio : MonoBehaviour
     {
         "NULL",
         "Title",
+        "MM_Play",
+        "MM_Options",
+        "MM_Credits",
+        "MM_Quit",
         "MAX",
     };
     #endregion
