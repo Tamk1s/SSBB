@@ -7,6 +7,7 @@ public class BallController : MonoBehaviour
     public PlayerControls controls;
     public ControlledBy controlledBy;                           //Who controls this player?
     public PositionTween positionTween;                         //Generic positionTween. Probably dead Coffee code
+    public BallPhysics physics;
 
     [HideInInspector]public bool isPumping;                     //Is player pumping?
     [HideInInspector] public bool isBoosting;                   //Is player boosting?
@@ -76,7 +77,7 @@ public class BallController : MonoBehaviour
 
     public void onMove(Vector2 axis)
     {
-        Debug.Log("onMove:  " + axis.ToString());
+        physics.SetDirectionalInput(axis);
     }
 
     public void onBoostDown()
