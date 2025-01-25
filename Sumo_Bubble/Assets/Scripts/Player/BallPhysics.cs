@@ -18,8 +18,7 @@ public class BallPhysics : MonoBehaviour
     public Vector2 direction;
 
     [ShowNonSerializedField]
-    float currentSpeed;
-    
+    float currentSpeed;    
 
     [System.Serializable]
     public class Preset
@@ -50,6 +49,11 @@ public class BallPhysics : MonoBehaviour
     public void Update()
     {
         updateSizeSettings();
+    }
+
+    public void changeSize(float size)
+    {
+        currentSize = size;
     }
 
     public void updateSizeSettings()

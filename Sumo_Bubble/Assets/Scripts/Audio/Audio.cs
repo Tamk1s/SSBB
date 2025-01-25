@@ -38,7 +38,7 @@ public class Audio : MonoBehaviour
         "MenuSelect",              //Menu select SFX
 
         "Pump",                    //Pump
-        "Boost",                   //Boost
+        "Deflate",                   //Boost
         "Hit_Player",              //Hit SFX
         "Death_Player",            //Death SFX
         "Victory_Player",          //Victory SFX

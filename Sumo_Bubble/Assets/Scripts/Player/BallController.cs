@@ -8,9 +8,12 @@ public class BallController : MonoBehaviour
     public ControlledBy controlledBy;                           //Who controls this player?
     public PositionTween positionTween;                         //Generic positionTween. Probably dead Coffee code
     public BallPhysics physics;
+    public BubbleAir air;
 
-    [HideInInspector]public bool isPumping;                     //Is player pumping?
-    [HideInInspector] public bool isBoosting;                   //Is player boosting?
+    //[HideInInspector]
+    public bool isPumping;                     //Is player pumping?
+    //[HideInInspector]
+    public bool isBoosting;                   //Is player boosting?
 
     //get components
     [HideInInspector]public Animator animator;                  //Animator for sprite
@@ -58,7 +61,7 @@ public class BallController : MonoBehaviour
         }
 
         //sign up for events
-        controls.MoveAxis += onMove;
+        controls.MoveAxis += onMove;        //x
         controls.onA += onBoostDown;
         controls.onAHeld += onBoostHeld;
         controls.onAReleased += onBoostUp;
@@ -82,22 +85,24 @@ public class BallController : MonoBehaviour
 
     public void onBoostDown()
     {
-        Debug.Log("onBoostDown called");
+        isBoosting = true;
+        air.DoBlow();
     }
 
     public void onBoostUp()
     {
-        Debug.Log("onBoostUp called");
+        isBoosting = false;
+        air.StopBlow();
     }
 
     public void onBoostHeld()
     {
-        Debug.Log("onBoostHeld called");
+        onBoostDown();
     }
 
     public void onPump()
     {
-        Debug.Log("onPump called");
+        air.PumpUp();
     }
 
     public void onBack()
