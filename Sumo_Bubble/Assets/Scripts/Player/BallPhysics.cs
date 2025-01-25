@@ -5,16 +5,44 @@ using NaughtyAttributes;
 
 public class BallPhysics : MonoBehaviour
 {
+    public Preset SmallestPreset;
+    public Preset LargestPreset;
+    public Preset CurrentPreset;
+
     public Rigidbody rigid;
+    public PhysicMaterial PhysMaterial;
     public Vector2 direction;
-    public float baseMovementForce;
+    
+
+    [System.Serializable]
+    public class Preset
+    {
+        public float movementForce = 80;
+        public float mass = 3;
+        public float angularDrag = 0.05f;
+        public float drag = 0;
+        public float scale = 3;
+        public float staticFriction;
+        public float dynamicFriction;
+    }
 
 
     //public bool isForward, isBackward, isLeft, isRight;
 
+    [Button]
+    public void TestPreset()
+    {
+        rigid.mass = CurrentPreset.mass;
+        rigid.angularDrag = CurrentPreset.angularDrag;
+        rigid.drag = CurrentPreset.drag;
+        this.transform.localScale = Vector3.one * CurrentPreset.scale;
+        PhysMaterial.dynamicFriction = CurrentPreset.dynamicFriction;
+        PhysMaterial.staticFriction = CurrentPreset.staticFriction;
+    }
+
     public void FixedUpdate()
     {
-        rigid.AddForce(new Vector3(direction.x, 0, direction.y) * baseMovementForce);
+        rigid.AddForce(new Vector3(direction.x, 0, direction.y) * CurrentPreset.movementForce);
     }
 
     [Button]

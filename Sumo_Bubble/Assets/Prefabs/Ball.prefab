@@ -258,6 +258,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4361f178905c3b84cb38c2f2dd5b7d90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SmallestPreset:
+    movementForce: 180
+    mass: 1
+    angularDrag: 0
+    drag: 0
+    scale: 3
+    staticFriction: 10
+    dynamicFriction: 0
+  LargestPreset:
+    movementForce: 80
+    mass: 3
+    angularDrag: 0.05
+    drag: 0
+    scale: 10
+    staticFriction: 0.6
+    dynamicFriction: 1
+  CurrentPreset:
+    movementForce: 80
+    mass: 3
+    angularDrag: 0.05
+    drag: 0
+    scale: 80
+    staticFriction: 0
+    dynamicFriction: 0
   rigid: {fileID: 2550892744803664858}
+  PhysMaterial: {fileID: 0}
   direction: {x: 0, y: 0}
-  baseMovementForce: 30
+  baseMovementForce: 80
