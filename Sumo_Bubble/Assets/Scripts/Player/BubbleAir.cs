@@ -6,11 +6,11 @@ using UnityEngine;
 public class BubbleAir : MonoBehaviour
 {
     [Header("Constants")]
-    public float MaxAir = 100;
+    public float MaxAir = 100f;
     public float MinAir = 0f;
-    public float StartingAir = 25;
+    public float StartingAir = 25f;
     public float pumpUpIncrement;
-    public float airLossPerSecond = 10;
+    public float airLossPerSecond = 10f;
 
     [Header("Debug")]
     public float currentAir;
@@ -26,6 +26,7 @@ public class BubbleAir : MonoBehaviour
     public void Start()
     {
         currentAir = StartingAir;
+        ready = true;
     }
 
     public void Update()
@@ -79,11 +80,8 @@ public class BubbleAir : MonoBehaviour
     {
         float newVal = Mathf.Clamp(val, MinAir, MaxAir);
         change = (val != newVal);
-        if (change)
-        {
-            float size = (currentAir / MaxAir);
-            physics.changeSize(size);
-        }
+        float size = (currentAir / MaxAir);
+        physics.changeSize(size);
         return newVal;
     }
 
