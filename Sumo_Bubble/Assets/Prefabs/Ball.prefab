@@ -53,7 +53,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentSize: 0.5
-  extraGravity: 5
+  extraGravity: 100
   CollisionMask:
     serializedVersion: 2
     m_Bits: 64
