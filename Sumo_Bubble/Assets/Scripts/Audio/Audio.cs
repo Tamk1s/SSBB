@@ -46,13 +46,15 @@ public class Audio : MonoBehaviour
     public enum VOX
     {
         VOX_NULL,
-        MAX = VOX_NULL + 0x01
+        VOX_TITLE,
+        MAX = VOX_TITLE + 0x01
     }
 
     /// <summary>Base filenames for each vox, aligned with VOX enum</summary>
     private string[] vox = new string[(int)(VOX.MAX)+1]
     {
         "NULL",
+        "Title",
         "MAX",
     };
     #endregion

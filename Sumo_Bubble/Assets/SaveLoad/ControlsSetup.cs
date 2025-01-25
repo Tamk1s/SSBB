@@ -16,15 +16,22 @@ public class ControlsSetup
 
     private const string xinput = "XInput";                 //String for XInput types of controllers
     private const string xbox = "XBOX";                     //String for XBox controllers
+    private const string nintendo = "NSW";                       //String for Nintendo Controllers
+    private const string nsw = "NSW";                       //String for NSW controllers
+    private const string wii = "WII";                       //String for Wii(U) controllers
 
     /// <summary>Returns the default controls for player 1</summary>
     /// <returns>ControlsSetup</returns>
     public static ControlsSetup DefaultPlayer1Setup()
     {
-        return new ControlsSetup()
-        {
-            player = ControlledBy.PLAYER1,
-        };
+        return new ControlsSetup(){player = ControlledBy.PLAYER1,};
+    }
+
+    /// <summary>Returns the default controls for player 2</summary>
+    /// <returns>ControlsSetup</returns>
+    public static ControlsSetup DefaultPlayer2Setup()
+    {
+        return new ControlsSetup(){player = ControlledBy.PLAYER2,};
     }
 
     /// <summary>Returns the area of axis(es) releative to a a deadzone</summary>
@@ -39,13 +46,9 @@ public class ControlsSetup
 
         //If just checking x-axis, just set val to xaxis value; else to y-axis if just y
         if (ax == -1)
-        {
-            val = axis.x;
-        }
+        {val = axis.x;}
         else if (ax == 1)
-        {
-            val = axis.y;
-        }
+        {val = axis.y;}
 
         if(ax!=0)
         {
@@ -54,13 +57,9 @@ public class ControlsSetup
 
             //Shove the zone into the appropriate vector component, set other to 0f (duh)
             if (ax == -1)
-            {
-                area = new Vector2(val, 0f);
-            }
+            {area = new Vector2(val, 0f);}
             else
-            {
-                area = new Vector2(0f, val);
-            }
+            {area = new Vector2(0f, val);}
         }
         else
         {
@@ -78,17 +77,10 @@ public class ControlsSetup
     {
         float result = 0f;
         if ((val >= deadArea.x) && (val <= deadArea.y))
-        {
-            result = 0f;
-        }
+        {result = 0f;}
         else if (val < deadArea.x)
-        {
-            result = -1;
-        }
-        else if (val > deadArea.y)
-        {
-            result = 1;
-        }
+        {result = -1;}
+        else if (val > deadArea.y){result = 1;}
         return result;
     }
 
@@ -131,7 +123,6 @@ public class ControlsSetup
                 //Return ByRef all types in array T for this gamepad
                 FindTypesOfGamePad(c, ref T);
                 
-
                 byte b = 0x00;  //Index of this bool t
                 //Iterate through all Types in T
                 foreach (bool t in T)
@@ -162,10 +153,12 @@ public class ControlsSetup
             {
                 index = (byte)(RewiredConsts.Layout.Joystick.Types.KBD); types[index] = true;
             }
+            /*
             else if (c.type == ControllerType.Mouse)
             {
                 index = (byte)(RewiredConsts.Layout.Joystick.Types.MOUSE); types[index] = true;
             }
+            */
             else if (c.type == ControllerType.Custom)
             {
                 //If custom set custom
@@ -209,11 +202,13 @@ public class ControlsSetup
                     if (IDual)
                     {
                     */
-                    index = (byte)(RewiredConsts.Layout.Joystick.Types.T_DUAL_ANALOG); types[index] = true;
+                    //index = (byte)(RewiredConsts.Layout.Joystick.Types.T_DUAL_ANALOG); types[index] = true;
                     //}
 
                     //See if controller is an xbox controller (check hw string names)
                     bool xb = (CheckSpecificJoyType(j, xinput, false) || CheckSpecificJoyType(j, xbox, true));
+                    //See if controller is an Nintendo controller (check hw string names)
+                    bool nin = (CheckSpecificJoyType(j, nsw, false)) || (CheckSpecificJoyType(j, wii, true)) || (CheckSpecificJoyType(j, nintendo, true));
                     if (xb)
                     {
                         //Set XInput flag
@@ -223,6 +218,17 @@ public class ControlsSetup
                         //For now, set both as true :shruggie:
                         index = (byte)(RewiredConsts.Layout.Joystick.Types.X360); types[index] = true;
                         index = (byte)(RewiredConsts.Layout.Joystick.Types.XBONE); types[index] = true;
+                    }
+                    //!@
+                    else if (nin)
+                    {
+                        //Set Nintendo flag
+                        index = (byte)(RewiredConsts.Layout.Joystick.Types.NINTENDO); types[index] = true;
+
+                        //!@ Add code here to determine Wii U vs NSW controller (plug in real 1st-party wired/less controllers to determine strings!
+                        //For now, set both as true :shruggie:
+                        index = (byte)(RewiredConsts.Layout.Joystick.Types.WIIU_PRO); types[index] = true;
+                        index = (byte)(RewiredConsts.Layout.Joystick.Types.NX_PRO); types[index] = true;
                     }
                 }
             }

@@ -21,21 +21,21 @@ public class MenuControls : MonoBehaviour
 
     public AdvancedFloatEvent leftStickHorizontal;  //Events to run on left stick horiz
     public AdvancedFloatEvent leftStickVertical;    //~ left stick vert
-    public AdvancedFloatEvent rightStickHorizontal; //Events to run on right stick horiz
+    //public AdvancedFloatEvent rightStickHorizontal; //Events to run on right stick horiz
     public AdvancedFloatEvent dpadHorizontal;       //~ dpad/kbd horiz
     public AdvancedFloatEvent dpadVertical;         //~ dpad/kbd vert
-    public AdvancedFloatEvent cpadHorizontal;       //~ dpad/kbd horiz
+    //public AdvancedFloatEvent cpadHorizontal;       //~ dpad/kbd horiz
 
     public AdvancedEvent onInit;                    //~ on Initz (if allowInit is true)
     public AdvancedEvent onBack;                    //~ on Back
     public AdvancedEvent onStart;                   //~ on Start 
 
     public AdvancedEvent onA;                       //~ onA btn
-    public AdvancedEvent onB;                       //~ onB btn
-    //public AdvancedEvent onX;                     //~ onX btn
-    public AdvancedEvent onY;                       //~ onY btn
-    public AdvancedEvent onLB;                      //~ on Left bumper btn
-    public AdvancedEvent onRB;                      //~ on Right bumper btn
+    //public AdvancedEvent onB;                       //~ onB btn
+    public AdvancedEvent onX;                     //~ onX btn
+    //public AdvancedEvent onY;                       //~ onY btn
+    //public AdvancedEvent onLB;                      //~ on Left bumper btn
+    //public AdvancedEvent onRB;                      //~ on Right bumper btn
     public AdvancedEvent onEnter;                   //~ on Enter key, non-remappable. Used for kbd remapping
     
 
@@ -149,7 +149,7 @@ public class MenuControls : MonoBehaviour
         Vector2 deadArea;
 
         int id = -1;        
-        float pitch_invert = 1f;
+        //float pitch_invert = 1f;
         /*
         bool yawPitch_swap = GameManager.currentControls.controls[index].yawRoll_Swap;          
         bool invert = GameManager.currentControls.controls[index].pitch_invert;
@@ -185,9 +185,9 @@ public class MenuControls : MonoBehaviour
         */
             //Override pitch inversion flags on maps with false (no inversion for menus)
             //GameManager.currentControls.controls[index].HandlePitchInvert(true, false);
-            id = RewiredConsts.Action.Yaw;
+            id = RewiredConsts.Action.Horiz;
         //}
-            axis = player.GetAxis2D(id, RewiredConsts.Action.Pitch);
+            axis = player.GetAxis2D(id, RewiredConsts.Action.Depth);
             deadAxis = RewiredConsts.Action.deadNorm;
             deadArea = ControlsSetup.RW_DeadAxis(axis, deadAxis, 0);        
             //if (ControlsHandler.instance.inputDevices[index].LeftStick.State && (isStickReady || sendConstantly))
@@ -205,20 +205,19 @@ public class MenuControls : MonoBehaviour
             }
 
             /*
-            if (throttle != null)
-            {
-                if (yawPitch_swap)
-                {
-                    id = RewiredConsts.Action.Yaw;
-                }
-                else
-                {
-                    id = RewiredConsts.Action.Roll;
-                }
-            }
-            else
-            {
-            */
+            //if (throttle != null)
+            //{
+            //    if (yawPitch_swap)
+            //    {
+            //        id = RewiredConsts.Action.Yaw;
+            //    }
+            //    else
+            //    {
+            //        id = RewiredConsts.Action.Roll;
+            //    }
+            //}
+            //else
+            //{
                 id = RewiredConsts.Action.Roll;
             //}
             axis = new Vector2(player.GetAxis(id), 0f);
@@ -235,6 +234,7 @@ public class MenuControls : MonoBehaviour
 
                 DisableStick();
             }
+            */
 
             //Handle dpad buttons
             /*
@@ -284,22 +284,26 @@ public class MenuControls : MonoBehaviour
 
             //Handle A button
             //if (ControlsHandler.instance.inputDevices[index].Action1.WasPressed)
-            if(player.GetButtonDown(RewiredConsts.Action.Shoot))
+            if(player.GetButtonDown(RewiredConsts.Action.Boost))
                 onA.Invoke();
 
-            //Handle B button
-            //if (ControlsHandler.instance.inputDevices[index].Action2.WasPressed)
-            if (player.GetButtonDown(RewiredConsts.Action.Special))
-                onB.Invoke();
+        //!@ Handle B button
+        //if (ControlsHandler.instance.inputDevices[index].Action2.WasPressed)
+        //if (player.GetButtonDown(RewiredConsts.Action.Special))
+        //onB.Invoke();
 
-            //if (ControlsHandler.instance.inputDevices[index].Action3.WasPressed)
-            //    StartCoroutine(InvokeUnityEvent(onX));
+        //!@ Handle X bugton
+        //if (ControlsHandler.instance.inputDevices[index].Action3.WasPressed)
+        //    StartCoroutine(InvokeUnityEvent(onX));
+        if (player.GetButtonDown(RewiredConsts.Action.Pump))
+            onX.Invoke();
 
-            //Handle Y button
-            //if (ControlsHandler.instance.inputDevices[index].Action4.WasPressed)
-            if (player.GetButtonDown(RewiredConsts.Action.UTurn))
-                onY.Invoke();
+        //!@ Handle Y button
+        //if (ControlsHandler.instance.inputDevices[index].Action4.WasPressed)
+        //if (player.GetButtonDown(RewiredConsts.Action.UTurn))
+                //onY.Invoke();
 
+        /*
             //Handle RB button
             //if (ControlsHandler.instance.inputDevices[index].LeftBumper.WasPressed)
             if (player.GetButtonDown(RewiredConsts.Action.BRollM))
@@ -309,6 +313,7 @@ public class MenuControls : MonoBehaviour
             //else if (ControlsHandler.instance.inputDevices[index].RightBumper.WasPressed)
             else if (player.GetButtonDown(RewiredConsts.Action.BRollP))
                 onRB.Invoke();
+        */
     /*
     }
         else

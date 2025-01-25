@@ -13,33 +13,34 @@ public class PlayerControls : MonoBehaviour
     public List<MenuScreen> relativeScreens = new List<MenuScreen>();   //Relative MenuScreen (if any)
     public const byte MAXKEYS = 15;                                     //!@Max amount of keys used by game
     
-    public Action onA;          //Attack pressed
-    public Action onAHeld;      //!@ Attack held
-    public Action onAReleased;  //!@ Attack released
-    public Action onB;          //Special attack pressed
+    public Action onA;          //Boost pressed
+    public Action onAHeld;      //!@ Boost  held
+    public Action onAReleased;  //!@ Boost  released
+    //public Action onB;          //Special attack pressed
 
     public Action onX;          //Brake pressed
-    public Action onXPressed;   //Brake held down
-    public Action onXReleased;  //Brake released 
+    //public Action onXPressed;   //Brake held down
+    //public Action onXReleased;  //Brake released 
 
-    public Action onY;
+    //public Action onY;
+    
+    //public Action onL3;         //!@ Acceleration 
+    //public Action onL3Pressed;
+    //public Action onL3Released;
 
-    public Action onL3;         //!@ Acceleration 
-    public Action onL3Pressed;
-    public Action onL3Released;
-
-    public Action onLB;         //!@ Hard/BRoll- 
-    public Action onLBReleased;
-    public Action onRB;         //!@ Hard/BRoll+
-    public Action onRBReleased;
+    //public Action onLB;         //!@ Hard/BRoll- 
+    //public Action onLBReleased;
+    //public Action onRB;         //!@ Hard/BRoll+
+    //public Action onRBReleased;
 
     public Action onStart;      //Start btn
     public Action onBack;       //Back button
-    public Action onSpecial;    //!@ Dead Code.
+    //public Action onSpecial;    //!@ Dead Code.
 
     public Player player;
-    public Action<Vector2> PitchYawAxis;    //X/Z rotation
-    public Action<Vector2> RollAxis;        //Y rotation
+    //!@ public Action<Vector2> PitchYawAxis;    //X/Z rotation
+    public Action<Vector2> MoveAxis;    //X/Z rotation
+    //public Action<Vector2> RollAxis;        //Y rotation
 
     //keyboard values
     /*
@@ -115,27 +116,27 @@ public class PlayerControls : MonoBehaviour
         //Handle gamepad controls
         InvokeEventsFromPlayer((int)controlledBy);
 
-        if (PitchYawAxis != null){PitchYawAxis.Invoke(LStickAxis);}
+        //if (PitchYawAxis != null){PitchYawAxis.Invoke(LStickAxis);}
+        if (MoveAxis != null){ MoveAxis.Invoke(LStickAxis);}        
 
         //!@
-        if (RollAxis != null){RollAxis.Invoke(RStickAxis);}
+        //if (RollAxis != null){RollAxis.Invoke(RStickAxis);}
     }
 
-    /// <summary>
-    /// Handles gamepad controls
-    /// </summary>
+    /// <summary>Handles gamepad controls</summary>
     /// <param name="index">ControlledBy player index</param>
     private void InvokeEventsFromPlayer(int index)
     {
         Controller c;
 
-        ActionElementMap throttle = null;
+        //!@ ActionElementMap throttle = null;
         Vector2 axis;           //Axis value
         Vector2 deadAxis;       //Deadzone for axises (.x = min, .y = max)
         Vector2 deadArea;       //Return result from ControlsSetup.DeadZone function
         int ID = 0;
+        int ID2 = 0;
         //bool yawRoll_swap = false;
-        float pitch_invert = 1f;
+        //!@ float pitch_invert = 1f;
         bool state = false;     //Generic button press state/bool
         /*
         if (ControlsHandler.instance.inputDevices[index] == null)
@@ -160,6 +161,7 @@ public class PlayerControls : MonoBehaviour
             //X360 controller
             //Handle DirStick X/Y dirs
             
+            /*
             player = ReInput.players.GetPlayer(index);   //Get the player
             c = player.controllers.GetLastActiveController();   //Get the last active controller
             if(c!=null)
@@ -167,9 +169,10 @@ public class PlayerControls : MonoBehaviour
                 //!@ Note: For a controller to be considered "inactive" as a return result from p.c.GLAC()
                 //All buttons must be up, and axises at deadzone.
 
-                //Get that controller's dedicated throttle axis (if any)
-                throttle = player.controllers.maps.GetFirstAxisMapWithAction(c, RewiredConsts.Action.Throttle, true);
+                //!@ Get that controller's dedicated throttle axis (if any)
+                throttle = null;//player.controllers.maps.GetFirstAxisMapWithAction(c, RewiredConsts.Action.Throttle, true);
             }
+            */
 
             /*
             yawRoll_swap = GameManager.currentControls.controls[index].yawRoll_Swap;
@@ -200,9 +203,10 @@ public class PlayerControls : MonoBehaviour
             */
                  //Apply Pitch inversion flag from settings
                  //pitch_invert = GameManager.currentControls.controls[index].HandlePitchInvert(false, false);
-                 ID = RewiredConsts.Action.Yaw;
+                 ID = RewiredConsts.Action.Horiz;
+                ID2 = RewiredConsts.Action.Depth;
              //}
-            axis = player.GetAxis2D(ID,RewiredConsts.Action.Pitch);   //Get axis2D of yaw and & pitch
+            axis = player.GetAxis2D(ID, ID2);   //Get axis2D of x & y
             deadAxis = RewiredConsts.Action.deadNorm;                 //DeadAxis area  = +-.1f
             deadArea = ControlsSetup.RW_DeadAxis(axis, deadAxis, 0);  //Get deadzone result for both axises
             //If the result is outside of the deadzone, store axis value into LStick axis
@@ -214,23 +218,22 @@ public class PlayerControls : MonoBehaviour
             }
 
             //!@
+            /*
             //Handle CStick X/Y dirs
             //if (ControlsHandler.instance.inputDevices[index].RightStick.State)
-            /*
-            if (throttle != null)
-            {
-                if (yawRoll_swap)
-                {
-                    ID = RewiredConsts.Action.Yaw;
-                }
-                else
-                {
-                    ID = RewiredConsts.Action.Roll;
-                }
-            }
-            else
-            {
-            */
+            //if (throttle != null)
+            //{
+            //    if (yawRoll_swap)
+            //    {
+            //        ID = RewiredConsts.Action.Yaw;
+            //    }
+            //    else
+            //    {
+            //        ID = RewiredConsts.Action.Roll;
+            //    }
+            //}
+            //else
+            //{
                 ID = RewiredConsts.Action.Roll;
             //}            
             axis = new Vector2(player.GetAxis(ID), 0f);          //Set axis for roll            
@@ -239,6 +242,7 @@ public class PlayerControls : MonoBehaviour
             //If the result is outside of the deadzone, store axis value into RStickAxis
             if (deadArea != Vector2.zero)
                 RStickAxis = axis;
+            */
 
             //Handle DPad X/Y dirs
             //if (ControlsHandler.instance.inputDevices[index].DPad.State)
@@ -264,14 +268,13 @@ public class PlayerControls : MonoBehaviour
 
             //Handle A btn
             //if (ControlsHandler.instance.inputDevices[index].Action1.WasPressed)
-
-            int shoot = RewiredConsts.Action.Shoot;  //String name for shoot action
-            if (player.GetButtonDown(shoot))
+            int boost = RewiredConsts.Action.Boost;  //String name for boost action
+            if (player.GetButtonDown(boost))
             {
                 //If shoot button pressed down, fire onA event
                 StartCoroutine(InvokeEvent(onA));
             }
-            else if (player.GetButtonUp(shoot))
+            else if (player.GetButtonUp(boost))
             {
                 //If shoot button released, fire onAReleased event
                 StartCoroutine(InvokeEvent(onAReleased));
@@ -279,26 +282,25 @@ public class PlayerControls : MonoBehaviour
             else
             {
                 //If neither up or down
-
                 //Get amount of time shoot button has been pressed; if > 0f, then fire onAHeld event
-                float held = (float)(player.GetButtonTimePressed(shoot));
+                float held = (float)(player.GetButtonTimePressed(boost));
                 if (held > 0f)
                 {
                     StartCoroutine(InvokeEvent(onAHeld));
                 }
             }
 
-            //Handle B btn
+            //Handle X btn
             //if (ControlsHandler.instance.inputDevices[index].Action2.WasPressed)
-            if (player.GetButtonDown(RewiredConsts.Action.Special))
+            if (player.GetButtonDown(RewiredConsts.Action.Pump))
             {
-                StartCoroutine(InvokeEvent(onB));
+                StartCoroutine(InvokeEvent(onX));
                 //specialTimer = specialActionResetTime;
             }
 
             //Handle throttle (accel/break)
-
             //Check if one of the controllers has a dedicated throttle axis (for flightsticks etc)            
+            /*
             if (throttle != null)
             {
                 //If a controller has a throttle axis (flightsticks etc), handle specially
@@ -392,7 +394,9 @@ public class PlayerControls : MonoBehaviour
                     StartCoroutine(InvokeEvent(onL3Pressed));
                 }
             }
+            */
 
+            /*
             //Handle Y btn
             //if (ControlsHandler.instance.inputDevices[index].Action4.WasPressed)
             if (player.GetButtonDown(RewiredConsts.Action.UTurn))
@@ -428,6 +432,7 @@ public class PlayerControls : MonoBehaviour
                 //else if RB button release, release onRB
                 StartCoroutine(InvokeEvent(onRBReleased));
             }
+            /*
         /*
         }        
         else
@@ -571,7 +576,60 @@ public class PlayerControls : MonoBehaviour
 
         //if (forcePlayer1 == true)
         //{
-            controlledBy=(int)ControlledBy.PLAYER1;
+            controlledBy=ControlledBy.PLAYER1;
+        /*
+        }
+        else
+        {
+            controlledBy=(ControlledBy)Enum.GetValues(typeof(ControlledBy)).GetValue(GameManager.currentControls.controls[0].joystickId);
+        }
+        */
+        return controlledBy;
+    }
+
+    /// <summary>Sets player 2's default controls for each key type in this script</summary>
+    /// <returns>ControlledBy player</returns>
+    //public ControlledBy LoadPlayer1Setup(bool forcePlayer1 = false)
+    public ControlledBy LoadPlayer2Setup()
+    {
+        const byte val = 1; //Player device ID
+
+        //Kbd values
+        /*
+        upKeyValue = GameManager.currentControls.controls[val].upArrow;
+        downKeyValue = GameManager.currentControls.controls[val].downArrow;
+        leftKeyValue = GameManager.currentControls.controls[val].leftArrow;
+        rightKeyValue = GameManager.currentControls.controls[val].rightArrow;
+        left2KeyValue = GameManager.currentControls.controls[val].leftArrow2;    //!@
+        right2KeyValue = GameManager.currentControls.controls[val].rightArrow2;  //!@
+        
+        aKeyValue = GameManager.currentControls.controls[val].aKey;
+        bKeyValue = GameManager.currentControls.controls[val].bKey;
+        xKeyValue = GameManager.currentControls.controls[val].xKey;
+        yKeyValue = GameManager.currentControls.controls[val].yKey;
+        L3KeyValue = GameManager.currentControls.controls[val].L3Key;           //!@
+        LBKeyValue = GameManager.currentControls.controls[val].LBKey;           //!@
+        RBKeyValue = GameManager.currentControls.controls[val].RBKey;           //!@
+        backKeyValue = GameManager.currentControls.controls[val].backKey;
+        startKeyValue = GameManager.currentControls.controls[val].startKey;
+
+        //3rd-party gamepad btns
+        aBtnValue = GameManager.currentControls.controls[val].aBtn;
+        bBtnValue = GameManager.currentControls.controls[val].bBtn;
+        xBtnValue = GameManager.currentControls.controls[val].xBtn;
+        yBtnValue = GameManager.currentControls.controls[val].yBtn;
+        L3BtnValue = GameManager.currentControls.controls[val].L3Btn;           //!@
+        LBBtnValue = GameManager.currentControls.controls[val].LBBtn;           //!@
+        RBBtnValue = GameManager.currentControls.controls[val].RBBtn;           //!@
+        startBtnValue = GameManager.currentControls.controls[val].startBtn;
+        backBtnValue = GameManager.currentControls.controls[val].backBtn;
+
+		Debug.Log("joystickID: " + GameManager.currentControls.controls[val].joystickId.ToString());
+        */
+
+        //if (forcePlayer1 == true)
+        //{
+        controlledBy = ControlledBy.PLAYER2;
         /*
         }
         else
