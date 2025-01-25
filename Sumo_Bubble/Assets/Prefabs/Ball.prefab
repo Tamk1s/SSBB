@@ -305,6 +305,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentSize: 0.5
+  extraGravity: 100
+  CollisionMask:
+    serializedVersion: 2
+    m_Bits: 64
   SmallestPreset:
     movementForce: 180
     mass: 1

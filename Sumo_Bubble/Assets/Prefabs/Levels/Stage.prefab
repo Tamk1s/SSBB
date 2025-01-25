@@ -12,13 +12,13 @@ GameObject:
   - component: {fileID: 9020987016444157058}
   - component: {fileID: 1045638146000567862}
   - component: {fileID: 8458626507311281500}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_StaticEditorFlags: 2147483647
+  m_IsActive: 0
 --- !u!4 &1873253025417814076
 Transform:
   m_ObjectHideFlags: 0
@@ -114,7 +114,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6171717568270209757}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Boxes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -161,12 +161,12 @@ GameObject:
   - component: {fileID: 1835330525395750910}
   - component: {fileID: 7812443480991906428}
   - component: {fileID: 7696511482191067186}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &3020182614988155276
 Transform:
@@ -266,12 +266,12 @@ GameObject:
   - component: {fileID: 1400862376855812290}
   - component: {fileID: 7925424463604944104}
   - component: {fileID: 206890117697919174}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1663144543044829521
 Transform:
@@ -371,12 +371,12 @@ GameObject:
   - component: {fileID: 2447171731881702537}
   - component: {fileID: 7041564302448865759}
   - component: {fileID: 5738641897826725607}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &4509513429729077918
 Transform:
@@ -476,12 +476,12 @@ GameObject:
   - component: {fileID: 2658840002535712164}
   - component: {fileID: 4214195010862951525}
   - component: {fileID: 5188329455190440647}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &5069560019902791541
 Transform:
@@ -579,7 +579,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1043987972537404014}
   - component: {fileID: 3484746663421657084}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Stage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -639,12 +639,12 @@ GameObject:
   - component: {fileID: 2011774822113808112}
   - component: {fileID: 1410587587747031939}
   - component: {fileID: 4432203511400143954}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (11)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &5389731204327038990
 Transform:
@@ -744,12 +744,12 @@ GameObject:
   - component: {fileID: 5564901338936358362}
   - component: {fileID: 7894467866248274875}
   - component: {fileID: 276699238084945592}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (12)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &7165927607748768001
 Transform:
@@ -849,13 +849,13 @@ GameObject:
   - component: {fileID: 4237455896772435350}
   - component: {fileID: 7031932603041458984}
   - component: {fileID: 5907689791834414804}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_StaticEditorFlags: 2147483647
+  m_IsActive: 0
 --- !u!4 &2851905103832663831
 Transform:
   m_ObjectHideFlags: 0
@@ -954,13 +954,13 @@ GameObject:
   - component: {fileID: 3163917027018167241}
   - component: {fileID: 7286201239667250077}
   - component: {fileID: 328425779063317186}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_StaticEditorFlags: 2147483647
+  m_IsActive: 0
 --- !u!4 &2320310381406565088
 Transform:
   m_ObjectHideFlags: 0
@@ -1059,12 +1059,12 @@ GameObject:
   - component: {fileID: 5503956742506967645}
   - component: {fileID: 7248332846059929935}
   - component: {fileID: 3804247376459482763}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &5960196847441744807
 Transform:
@@ -1164,13 +1164,13 @@ GameObject:
   - component: {fileID: 6400986802396763894}
   - component: {fileID: 4032050656830706774}
   - component: {fileID: 5913259489340512190}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_StaticEditorFlags: 2147483647
+  m_IsActive: 0
 --- !u!4 &8498091121505182670
 Transform:
   m_ObjectHideFlags: 0
@@ -1271,7 +1271,7 @@ GameObject:
   - component: {fileID: 4966893206079498048}
   - component: {fileID: 5806945617267206368}
   - component: {fileID: 1182134475929955617}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3520,12 +3520,12 @@ GameObject:
   - component: {fileID: 3919927937831641705}
   - component: {fileID: 4696824298200213083}
   - component: {fileID: 9208492749810516004}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &3766237609039378008
 Transform:
@@ -3625,12 +3625,12 @@ GameObject:
   - component: {fileID: 5321054727310423735}
   - component: {fileID: 1142685522548351085}
   - component: {fileID: 4418542851746835907}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &7804185321356483488
 Transform:
