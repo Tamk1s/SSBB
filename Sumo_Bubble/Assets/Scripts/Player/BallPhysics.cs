@@ -7,6 +7,9 @@ public class BallPhysics : MonoBehaviour
 {
     [Range(0, 1)] public float currentSize;
 
+    public float extraGravity = 5;
+    public LayerMask CollisionMask;
+
     public Preset SmallestPreset;
     public Preset LargestPreset;
     public Preset CurrentPreset;
@@ -19,6 +22,8 @@ public class BallPhysics : MonoBehaviour
 
     [ShowNonSerializedField]
     float currentSpeed;
+
+
     
 
     [System.Serializable]
@@ -73,6 +78,7 @@ public class BallPhysics : MonoBehaviour
         rigid.AddForce(new Vector3(direction.x, 0, direction.y) * CurrentPreset.movementForce);
         currentSpeed = rigid.velocity.magnitude;
         clampSpeed();
+        additionalGravity();
     }
 
     [Button]
@@ -81,43 +87,16 @@ public class BallPhysics : MonoBehaviour
         direction = dir;
     }
 
-    //public void ForwardPressed()
-    //{
-    //    isForward = true;
-    //}
-
-    //public void ForwardReleased()
-    //{
-    //    isForward = false;
-    //}
-
-    //public void BackwardPressed()
-    //{
-    //    isBackward = true;
-    //}
-
-    //public void BackwardReleased()
-    //{
-    //    isBackward = false;
-    //}
-
-    //public void LeftPressed()
-    //{
-    //    isLeft = true;
-    //}
-
-    //public void LeftReleased()
-    //{
-    //    isLeft = false;
-    //}
-
-    //public void RightPressed()
-    //{
-    //    isRight = true;
-    //}
-
-    //public void RightReleased()
-    //{
-    //    isRight = false;
-    //}
+    void additionalGravity()
+    {
+        if (!Physics.Raycast(this.transform.position, Vector3.up * -1, Mathf.Lerp(SmallestPreset.scale, LargestPreset.scale, currentSize) / 2 + 0.25f, CollisionMask))
+        {
+            Debug.Log("Airborn");
+            rigid.AddForce(Vector3.up * -1 * extraGravity, ForceMode.Acceleration);
+        }
+        else
+        {
+            Debug.Log("Grounded");
+        }
+    }
 }
