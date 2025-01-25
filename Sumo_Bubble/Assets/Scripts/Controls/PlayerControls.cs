@@ -12,7 +12,7 @@ public class PlayerControls : MonoBehaviour
 {
     public List<MenuScreen> relativeScreens = new List<MenuScreen>();   //Relative MenuScreen (if any)
     public const byte MAXKEYS = 15;                                     //!@Max amount of keys used by game
-    
+
     public Action onA;          //Boost pressed
     public Action onAHeld;      //!@ Boost  held
     public Action onAReleased;  //!@ Boost  released
@@ -73,19 +73,21 @@ public class PlayerControls : MonoBehaviour
     //--------------
     */
 
-    private ControlledBy controlledBy;
+    public ControlledBy controlledBy;
     private float lastThrotarea = 0f;                   //!@ Previous deadzone are of the throttle axis for flightstick support
     private Vector2 LStickAxis = new Vector2();         //DirStick
-    private Vector2 RStickAxis = new Vector2();         //CStick
+    //private Vector2 RStickAxis = new Vector2();         //CStick
     //private float specialTimer;                         //!@ Dead Coffee Code. Delay timer for spamming special attack
 
-    void Update()
+    public void Update()
     {
         //Don't enable player controller outside of particular relative screens
         //This prevents say movement in pause screen etc
         byte i = 0;         //Generic iterator
         bool good = false;  //Any good screens?
 
+        //!@
+        /*
         if (relativeScreens != null)
         {
             //If array populated
@@ -100,18 +102,16 @@ public class PlayerControls : MonoBehaviour
         }
         else
         {
+        */
             //If array empty, we are good
             good = true;
-        }
+        //}
 
         //if no good, return
-        if (!good)
-        {
-            return;
-        }
+        if (!good){return;}
 
         LStickAxis *= .8f;
-        RStickAxis *= .8f;  //!@
+        //RStickAxis *= .8f;  //!@
 
         //Handle gamepad controls
         InvokeEventsFromPlayer((int)controlledBy);
@@ -154,6 +154,7 @@ public class PlayerControls : MonoBehaviour
         }
         */
 
+        player = ReInput.players.GetPlayer(index);   //Get the player
         //Type of gamepad
         //int StandX360 = GameManager.currentControls.controls[index].joystickType;
         //if (StandX360 == 0)
