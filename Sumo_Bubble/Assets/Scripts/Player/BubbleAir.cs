@@ -77,7 +77,8 @@ public class BubbleAir : MonoBehaviour
         float val = (currentAir + pumpUpIncrement);
         bool delta = false;
         currentAir = ChangeAir(val, ref delta);
-        if (delta) { audio.sfx_play(Audio.SFX.SFX_PUMP); }
+        //if (delta) {
+        audio.sfx_play(Audio.SFX.SFX_PUMP);
         return delta;
     }
 
@@ -87,7 +88,9 @@ public class BubbleAir : MonoBehaviour
         float val = (currentAir - airBoostLossPerSecond/4f);
         bool delta = false;
         currentAir = ChangeAir(val,ref delta);
-        if (delta){ToggleBoostSFX(true);}
+        //if (delta){
+            ToggleBoostSFX(true);
+        //}
     }
 
     public void DoBlow_Hurt(float hurt, hurtType hType, Audio.SFX clip)
@@ -98,7 +101,9 @@ public class BubbleAir : MonoBehaviour
         float val = (currentAir - hurt);
         bool delta = false;
         currentAir = ChangeAir(val, ref delta);
-        if (delta){audio.sfx_play(clip);}
+        //if (delta){
+        audio.sfx_play(clip);
+        //}
     }
 
     public void DoHurt(hurtType hType)
