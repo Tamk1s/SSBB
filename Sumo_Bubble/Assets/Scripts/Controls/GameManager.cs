@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
 {
     //Singleton instance
     public static GameManager instance;
+    public LoadScene LS;
     /// <summary>Debug mode</summary>
     public bool DEBUG = true;
 

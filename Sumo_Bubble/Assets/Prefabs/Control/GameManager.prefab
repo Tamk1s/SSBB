@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6405952514194019403}
   - component: {fileID: 3651132628253601353}
   - component: {fileID: 752225596833267832}
+  - component: {fileID: 2445277808715509703}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -59,6 +60,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fc78a6890cae0d42838eec760b4fbe2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LS: {fileID: 2445277808715509703}
   DEBUG: 1
   AM_BGM: {fileID: 24100000, guid: f7406130432bacd418943fbf548b176a, type: 2}
   AM_SFX: {fileID: 24100000, guid: 2f7815761d75068448467c9cadf4c5e2, type: 2}
@@ -112,6 +114,19 @@ MonoBehaviour:
   audio_sfxR: {fileID: 0}
   audio_bgm: {fileID: 0}
   currentSong: 0
+--- !u!114 &2445277808715509703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2129943358222193724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ebbd793fca861a4ea41d028e8a3ec73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneName: Game
 --- !u!1001 &4544405923283192273
 PrefabInstance:
   m_ObjectHideFlags: 0

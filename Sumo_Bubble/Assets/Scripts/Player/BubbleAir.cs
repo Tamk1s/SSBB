@@ -9,9 +9,11 @@ public class BubbleAir : MonoBehaviour
     public float MaxAir = 100f;
     public float MinAir = 0f;
     public float StartingAir = 25f;
-    public float pumpUpIncrement;
+    public float pumpUpIncrement;    
     public float airLossPerSecond = 10f;
     public float airBoostLossPerSecond = 2.5f;
+    public float hurtLossPerSecond = 25f;
+    public float spikeLossPerSecond = 25f;
 
     [Header("Debug")]
     public float currentAir;
@@ -61,6 +63,21 @@ public class BubbleAir : MonoBehaviour
         bool delta = false;
         currentAir = ChangeAir(val,ref delta);
         if (delta){ToggleBoostSFX(true);}
+    }
+
+    public void DoBlow_Hurt(float hurt, int hurtType, Audio.SFX clip)
+    {
+        float val = (currentAir - hurt);
+        bool delta = false;
+        currentAir = ChangeAir(val, ref delta);
+        if (delta){audio.sfx_play(clip);}
+
+        bool good = (hurtType != 0);
+        if (good)
+        {
+            ballC.animator.SetHurt(hurtType);
+            Debug.Log("Hurtanim" + hurtType.ToString());
+        }
     }
 
     public void StopBlow()

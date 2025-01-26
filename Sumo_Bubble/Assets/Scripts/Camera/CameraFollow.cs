@@ -19,9 +19,9 @@ public class CameraFollow : MonoBehaviour
 
         //User-defined
         LYR_GROUND,
-        LYR_USER7,
-        LYR_USER8,
-        LYR_USER9,
+        LYR_BALL,
+        LYR_DEATHWALL,
+        LYR_HURT,
         LYR_USER10,
         LYR_USER11,
         LYR_USER12,
@@ -65,9 +65,9 @@ public class CameraFollow : MonoBehaviour
 
         //User-defined
         "Ground",
-        "",
-        "",
-        "",
+        "Ball",
+        "DeathWall",
+        "Hurt",
         "", //10
         "",
         "",

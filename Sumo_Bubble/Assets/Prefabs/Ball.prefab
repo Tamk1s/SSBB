@@ -113,8 +113,8 @@ MonoBehaviour:
   isBoosting: 0
   isDead: 0
   animator: {fileID: 7981671138895249451}
-  audio: {fileID: 0}
-  body: {fileID: 0}
+  Audio: {fileID: 5151064523258865258}
+  body: {fileID: 2893765978518475031}
   isLocked: 0
   ready: 0
 --- !u!114 &6559183212387989344
@@ -135,6 +135,8 @@ MonoBehaviour:
   pumpUpIncrement: 15
   airLossPerSecond: 5
   airBoostLossPerSecond: 2.5
+  hurtLossPerSecond: 25
+  spikeLossPerSecond: 25
   currentAir: 25
   audio: {fileID: 5151064523258865258}
   boostClip: {fileID: 1014509650068022781}

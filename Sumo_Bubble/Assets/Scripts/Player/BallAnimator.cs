@@ -111,9 +111,9 @@ public class BallAnimator : MonoBehaviour
         new aParam(animParamName.Inflate, animParamType.APT_TRIGGER),
         new aParam(animParamName.Inflating, animParamType.APT_BOOL),
         new aParam(animParamName.Hit, animParamType.APT_INT),
-        new aParam(animParamName.Dead, animParamType.APT_BOOL),
+        new aParam(animParamName.Dead, animParamType.APT_TRIGGER),
         new aParam(animParamName.DeadReset, animParamType.APT_TRIGGER),
-        new aParam(animParamName.Victory, animParamType.APT_BOOL),
+        new aParam(animParamName.Victory, animParamType.APT_TRIGGER),
         new aParam(animParamName.VictoryReset, animParamType.APT_TRIGGER),
     };
     #endregion
@@ -235,10 +235,10 @@ public class BallAnimator : MonoBehaviour
         return s;
     }
 
-    public void SetDead(bool state)
+    public void SetDead()
     {
         const animParamName name = animParamName.Dead;
-        SetBool(name, state);
+        SetTrigger(name);
     }
 
     public bool GetDead()
@@ -261,10 +261,10 @@ public class BallAnimator : MonoBehaviour
         return state;
     }
 
-    public void SetVictory(bool state)
+    public void SetVictory()
     {
         const animParamName name = animParamName.Victory;
-        SetBool(name, state);
+        SetTrigger(name);
     }
 
     public bool GetVictory()

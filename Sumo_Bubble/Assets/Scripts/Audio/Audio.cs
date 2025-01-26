@@ -24,7 +24,9 @@ public class Audio : MonoBehaviour
         SFX_PUMP,                           //Pump
         SFX_BOOST,                          //Boost
         
-        SFX_HIT_PLAYER,                     //Hit SFX (Player)
+        SFX_HIT_PLAYER,                     //Hit SFX (Player to Player)
+        SFX_HIT_SPIKES,                     //Spikes
+        SFX_HIT_DEATH,                      //Spikes
         SFX_DEATH_PLAYER,                   //Death SFX (Player)
         SFX_VICTORY_PLAYER,                 //Victory SFX (Player)
         MAX = SFX_VICTORY_PLAYER + 0x01     //MAX SFX
@@ -39,7 +41,10 @@ public class Audio : MonoBehaviour
 
         "Pump",                    //Pump
         "Deflate",                   //Boost
+        
         "Hit_Player",              //Hit SFX
+        "Hit_Spikes",              //Hit SPikes SFX
+        "Hit_Death",                //Hit death wall
         "Death_Player",            //Death SFX
         "Victory_Player",          //Victory SFX
         "MAX",
