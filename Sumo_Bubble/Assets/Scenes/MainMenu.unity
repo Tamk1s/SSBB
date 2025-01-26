@@ -234,9 +234,25 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 1152337000489176127, guid: 9680e43575c3db54f80a811d45244691, type: 3}
+      propertyPath: m_fontColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1152337000489176127, guid: 9680e43575c3db54f80a811d45244691, type: 3}
+      propertyPath: m_fontColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1152337000489176127, guid: 9680e43575c3db54f80a811d45244691, type: 3}
+      propertyPath: m_fontColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1152337000489176127, guid: 9680e43575c3db54f80a811d45244691, type: 3}
       propertyPath: m_sharedMaterial
       value: 
       objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 1152337000489176127, guid: 9680e43575c3db54f80a811d45244691, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4294902015
+      objectReference: {fileID: 0}
     - target: {fileID: 1244067858534260134, guid: 9680e43575c3db54f80a811d45244691, type: 3}
       propertyPath: onActivate.persistentCalls.calls.Array.data[0].genericMenuData.selectedMember
       value: 46
@@ -250,9 +266,25 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 1485445838790327435, guid: 9680e43575c3db54f80a811d45244691, type: 3}
+      propertyPath: m_fontColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1485445838790327435, guid: 9680e43575c3db54f80a811d45244691, type: 3}
+      propertyPath: m_fontColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1485445838790327435, guid: 9680e43575c3db54f80a811d45244691, type: 3}
+      propertyPath: m_fontColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1485445838790327435, guid: 9680e43575c3db54f80a811d45244691, type: 3}
       propertyPath: m_sharedMaterial
       value: 
       objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 1485445838790327435, guid: 9680e43575c3db54f80a811d45244691, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4294902015
+      objectReference: {fileID: 0}
     - target: {fileID: 1589239037319648371, guid: 9680e43575c3db54f80a811d45244691, type: 3}
       propertyPath: m_text
       value: Super Sumo Bubble Blaster!
@@ -263,7 +295,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 1589239037319648371, guid: 9680e43575c3db54f80a811d45244691, type: 3}
       propertyPath: m_fontColor.b
-      value: 0.8550687
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1589239037319648371, guid: 9680e43575c3db54f80a811d45244691, type: 3}
       propertyPath: m_fontColor.g
@@ -279,16 +311,32 @@ PrefabInstance:
       objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 1589239037319648371, guid: 9680e43575c3db54f80a811d45244691, type: 3}
       propertyPath: m_fontColor32.rgba
-      value: 4292477183
+      value: 4278190335
       objectReference: {fileID: 0}
     - target: {fileID: 2660243460803753149, guid: 9680e43575c3db54f80a811d45244691, type: 3}
       propertyPath: m_fontAsset
       value: 
       objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 2660243460803753149, guid: 9680e43575c3db54f80a811d45244691, type: 3}
+      propertyPath: m_fontColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2660243460803753149, guid: 9680e43575c3db54f80a811d45244691, type: 3}
+      propertyPath: m_fontColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2660243460803753149, guid: 9680e43575c3db54f80a811d45244691, type: 3}
+      propertyPath: m_fontColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2660243460803753149, guid: 9680e43575c3db54f80a811d45244691, type: 3}
       propertyPath: m_sharedMaterial
       value: 
       objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 2660243460803753149, guid: 9680e43575c3db54f80a811d45244691, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4294902015
+      objectReference: {fileID: 0}
     - target: {fileID: 2879385792930027918, guid: 9680e43575c3db54f80a811d45244691, type: 3}
       propertyPath: onActivate.persistentCalls.calls.Array.data[0].target
       value: 
@@ -414,9 +462,25 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 4821649317596045583, guid: 9680e43575c3db54f80a811d45244691, type: 3}
+      propertyPath: m_fontColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4821649317596045583, guid: 9680e43575c3db54f80a811d45244691, type: 3}
+      propertyPath: m_fontColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4821649317596045583, guid: 9680e43575c3db54f80a811d45244691, type: 3}
+      propertyPath: m_fontColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4821649317596045583, guid: 9680e43575c3db54f80a811d45244691, type: 3}
       propertyPath: m_sharedMaterial
       value: 
       objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 4821649317596045583, guid: 9680e43575c3db54f80a811d45244691, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4294902015
+      objectReference: {fileID: 0}
     - target: {fileID: 5828059441149929893, guid: 9680e43575c3db54f80a811d45244691, type: 3}
       propertyPath: forwardEvent.inspectorListHeight
       value: 83
