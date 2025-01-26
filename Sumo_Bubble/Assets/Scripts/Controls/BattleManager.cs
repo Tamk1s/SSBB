@@ -70,8 +70,12 @@ public class BattleManager : MonoBehaviour
     {
         const byte p1 = (byte)(ControlledBy.PLAYER1);
         const byte p2 = (byte)(ControlledBy.PLAYER2);
-        air[p1].text = balls[p1].air.currentAir.ToString("p2");
-        air[p2].text = balls[p2].air.currentAir.ToString("p2");
+        float val = balls[p1].air.currentAir;
+        val /= 100f;
+        air[p1].text = val.ToString("P2");
+        val = balls[p2].air.currentAir;
+        val /= 100f;
+        air[p2].text = val.ToString("P2");
     }
 
     private void ToggleWinner(byte index)

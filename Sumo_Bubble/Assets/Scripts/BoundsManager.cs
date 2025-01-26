@@ -9,6 +9,7 @@ public class BoundsManager : MonoBehaviour
     public GameObject East;
     public GameObject West;
 
+    public float timer = 0f;
     public float ShrinkSeconds = 90;
 
 
@@ -41,10 +42,11 @@ public class BoundsManager : MonoBehaviour
     {
         if (ready)
         {
-            North.transform.position = Vector3.Lerp(topStart, finalPosition, Time.time / ShrinkSeconds);
-            South.transform.position = Vector3.Lerp(bottomStart, finalPosition, Time.time / ShrinkSeconds);
-            East.transform.position = Vector3.Lerp(rightStart, finalPosition, Time.time / ShrinkSeconds);
-            West.transform.position = Vector3.Lerp(leftStart, finalPosition, Time.time / ShrinkSeconds);
+            timer += UnityEngine.Time.deltaTime;
+            North.transform.position = Vector3.Lerp(topStart, finalPosition, timer / ShrinkSeconds);
+            South.transform.position = Vector3.Lerp(bottomStart, finalPosition, timer / ShrinkSeconds);
+            East.transform.position = Vector3.Lerp(rightStart, finalPosition, timer / ShrinkSeconds);
+            West.transform.position = Vector3.Lerp(leftStart, finalPosition, timer / ShrinkSeconds);
         }
     }
 
