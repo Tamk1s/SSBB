@@ -35,7 +35,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 30, y: 30, z: 30}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 686127241950261132}
@@ -53,7 +53,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentSize: 0.5
-  boostMaxSpeedAddend: 15
+  boostMaxSpeedAddend: 60
   extraGravity: 100
   CollisionMask:
     serializedVersion: 2
@@ -64,7 +64,7 @@ MonoBehaviour:
     mass: 1
     angularDrag: 0
     drag: 0
-    scale: 3
+    scale: 12
     staticFriction: 10
     dynamicFriction: 0
   LargestPreset:
@@ -73,7 +73,7 @@ MonoBehaviour:
     mass: 3
     angularDrag: 0.05
     drag: 0
-    scale: 10
+    scale: 30
     staticFriction: 0.6
     dynamicFriction: 1
   maxSpeed: 45
@@ -615,7 +615,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_LocalScale: {x: 18, y: 18, z: 18}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 686127241950261132}
