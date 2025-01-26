@@ -3285,10 +3285,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1926095256843545870, guid: a3b8b8af0058f1545976dbe395be0553, type: 3}
+      propertyPath: airBoostLossPerSecond
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 3877695399017159634, guid: a3b8b8af0058f1545976dbe395be0553, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 597c472b98c3c8d4ea4920932679a8d5, type: 2}
+    - target: {fileID: 3909487704259644093, guid: a3b8b8af0058f1545976dbe395be0553, type: 3}
+      propertyPath: boostForce
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 3909487704259644093, guid: a3b8b8af0058f1545976dbe395be0553, type: 3}
+      propertyPath: PhysMaterial
+      value: 
+      objectReference: {fileID: 13400000, guid: 7ebf2489eaecce94e88048093279b0a0, type: 2}
     - target: {fileID: 3909487704259644093, guid: a3b8b8af0058f1545976dbe395be0553, type: 3}
       propertyPath: baseMovementForce
       value: 80
@@ -5117,10 +5129,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1926095256843545870, guid: a3b8b8af0058f1545976dbe395be0553, type: 3}
+      propertyPath: airBoostLossPerSecond
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 3877695399017159634, guid: a3b8b8af0058f1545976dbe395be0553, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 47182b44fc8e641488295041e74ebe82, type: 2}
+    - target: {fileID: 3909487704259644093, guid: a3b8b8af0058f1545976dbe395be0553, type: 3}
+      propertyPath: boostForce
+      value: 200
+      objectReference: {fileID: 0}
     - target: {fileID: 3909487704259644093, guid: a3b8b8af0058f1545976dbe395be0553, type: 3}
       propertyPath: baseMovementForce
       value: 80
@@ -5133,6 +5153,10 @@ PrefabInstance:
       propertyPath: positionTween
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 6238382168861118366, guid: a3b8b8af0058f1545976dbe395be0553, type: 3}
+      propertyPath: PhysMaterial
+      value: 
+      objectReference: {fileID: 13400000, guid: 7ebf2489eaecce94e88048093279b0a0, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

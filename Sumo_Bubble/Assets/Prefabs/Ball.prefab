@@ -53,6 +53,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentSize: 0.5
+  boostMaxSpeedAddend: 15
   extraGravity: 100
   CollisionMask:
     serializedVersion: 2
@@ -60,7 +61,6 @@ MonoBehaviour:
   SmallestPreset:
     movementForce: 180
     boostForce: 60
-    boostSpeed: 15
     mass: 1
     angularDrag: 0
     drag: 0
@@ -70,28 +70,20 @@ MonoBehaviour:
   LargestPreset:
     movementForce: 80
     boostForce: 26.667
-    boostSpeed: 15
     mass: 3
     angularDrag: 0.05
     drag: 0
     scale: 10
     staticFriction: 0.6
     dynamicFriction: 1
-  CurrentPreset:
-    movementForce: 80
-    boostForce: 26.667
-    boostSpeed: 15
-    mass: 3
-    angularDrag: 0.05
-    drag: 0
-    scale: 80
-    staticFriction: 0
-    dynamicFriction: 0
   maxSpeed: 45
   ballC: {fileID: 2159869932440259701}
   rigid: {fileID: 2893765978518475031}
   PhysMaterial: {fileID: 13400000, guid: f886297158aeebc4aa6a4f490776b72a, type: 2}
   direction: {x: 0, y: 0}
+  boostForce: 200
+  boostStaticFriction: 0
+  boostDynamicFriction: 0
 --- !u!114 &2159869932440259701
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -134,7 +126,7 @@ MonoBehaviour:
   StartingAir: 25
   pumpUpIncrement: 15
   airLossPerSecond: 5
-  airBoostLossPerSecond: 2.5
+  airBoostLossPerSecond: 3.5
   currentAir: 25
   audio: {fileID: 5151064523258865258}
   boostClip: {fileID: 1014509650068022781}
