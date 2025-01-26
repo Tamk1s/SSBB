@@ -63,6 +63,7 @@ public class BallAnimator : MonoBehaviour
         Inflate,
         Inflating,
         Hit,
+        Hurt,
         Dead,
         DeadReset,
         Victory,
@@ -111,6 +112,7 @@ public class BallAnimator : MonoBehaviour
         new aParam(animParamName.Inflate, animParamType.APT_TRIGGER),
         new aParam(animParamName.Inflating, animParamType.APT_BOOL),
         new aParam(animParamName.Hit, animParamType.APT_INT),
+        new aParam(animParamName.Hurt, animParamType.APT_TRIGGER),
         new aParam(animParamName.Dead, animParamType.APT_TRIGGER),
         new aParam(animParamName.DeadReset, animParamType.APT_TRIGGER),
         new aParam(animParamName.Victory, animParamType.APT_TRIGGER),
@@ -222,16 +224,35 @@ public class BallAnimator : MonoBehaviour
         return state;
     }
 
-    public void SetHurt(int s)
+    public void SetHit(BubbleAir.hurtType t)
+    {
+        int T = (int)(t);
+        SetHit(T);
+    }
+
+    public void SetHit(int s)
     {
         const animParamName name = animParamName.Hit;
         SetInteger(name, s);
     }
 
-    public int GetHurt()
+    public int GetHit()
     {
         const animParamName name = animParamName.Hit;
         int s = GetInteger(name);
+        return s;
+    }
+
+    public void SetHurt()
+    {
+        const animParamName name = animParamName.Hurt;
+        SetTrigger(name);
+    }
+
+    public bool GetHurt()
+    {
+        const animParamName name = animParamName.Hurt;
+        bool s = GetBool(name);
         return s;
     }
 

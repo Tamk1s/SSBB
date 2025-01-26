@@ -5,6 +5,19 @@ using UnityEngine;
 
 public class BubbleAir : MonoBehaviour
 {
+    #region Setup
+    public enum hurtType
+    {
+        HT_NONE,
+        HT_BALL,
+        HT_OBSTACLE,
+        MAX = HT_OBSTACLE
+    };
+    public const byte MAX_HURTTYPE = (byte)(hurtType.MAX) + 0x01;
+    #endregion
+
+    #region Vars
+    #region Constants
     [Header("Constants")]
     public float MaxAir = 100f;
     public float MinAir = 0f;
@@ -14,19 +27,29 @@ public class BubbleAir : MonoBehaviour
     public float airBoostLossPerSecond = 2.5f;
     public float hurtLossPerSecond = 25f;
     public float spikeLossPerSecond = 25f;
+    #endregion
 
+    #region Debug
     [Header("Debug")]
     public float currentAir;
+    #endregion region
 
+    #region Components
     //Components
+    [Header("Components")]
     public Audio audio;
     public Audio boostClip;
     public BallController ballC;
     public BallPhysics physics;
+    #endregion
 
+    #region States
     private bool boosting = false;    
     private bool ready = false;
+    #endregion
+    #endregion
 
+    #region StdUnityEvents
     public void Start()
     {
         currentAir = StartingAir;
@@ -45,7 +68,9 @@ public class BubbleAir : MonoBehaviour
     {
         ready = state;
     }
+    #endregion
 
+    #region AirFuncs
     [Button]
     public bool PumpUp()
     {       
@@ -65,19 +90,22 @@ public class BubbleAir : MonoBehaviour
         if (delta){ToggleBoostSFX(true);}
     }
 
-    public void DoBlow_Hurt(float hurt, int hurtType, Audio.SFX clip)
+    public void DoBlow_Hurt(float hurt, hurtType hType, Audio.SFX clip)
     {
+        bool good = (hType != hurtType.HT_NONE);
+        if (good) { DoHurt(hType); }
+
         float val = (currentAir - hurt);
         bool delta = false;
         currentAir = ChangeAir(val, ref delta);
         if (delta){audio.sfx_play(clip);}
+    }
 
-        bool good = (hurtType != 0);
-        if (good)
-        {
-            ballC.animator.SetHurt(hurtType);
-            Debug.Log("Hurtanim" + hurtType.ToString());
-        }
+    public void DoHurt(hurtType hType)
+    {
+        ballC.animator.SetHit(hType);
+        ballC.animator.SetHurt();
+        Debug.Log("Hurtanim" + hType.ToString());
     }
 
     public void StopBlow()
@@ -96,7 +124,7 @@ public class BubbleAir : MonoBehaviour
 
     private float ChangeAir(float val, ref bool change)
     {
-        bool dead = ((val < MinAir) || (val > MaxAir));
+        bool dead = (((val < MinAir) || (val > MaxAir)) && (!ballC.isDead));
         if (dead){ballC.ToggleDeath(true);}
 
         float newVal = Mathf.Clamp(val, MinAir, MaxAir);
@@ -126,4 +154,5 @@ public class BubbleAir : MonoBehaviour
         }
         */
     }
+    #endregion
 }

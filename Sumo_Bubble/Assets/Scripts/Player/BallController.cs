@@ -79,23 +79,23 @@ public class BallController : MonoBehaviour
 
     private void onHit(GameObject other)
     {
-        if (isDead) { }
+        if (isDead){return;}
 
         int layer = other.layer;
         switch (layer)
         {
             case (int)(CameraFollow.Layer.LYR_BALL):
-                DoHurt(air.hurtLossPerSecond, 0x01, Audio.SFX.SFX_HIT_PLAYER);
+                DoHurt(air.hurtLossPerSecond, BubbleAir.hurtType.HT_BALL, Audio.SFX.SFX_HIT_PLAYER);
                 Debug.Log("Ball collision");
                 break;
 
             case (int)(CameraFollow.Layer.LYR_DEATHWALL):
-                DoHurt(1000f, 0x02, Audio.SFX.SFX_HIT_DEATH);
+                DoHurt(1000f, BubbleAir.hurtType.HT_OBSTACLE, Audio.SFX.SFX_HIT_DEATH);
                 Debug.Log("DeathWall");
                 break;
 
             case (int)(CameraFollow.Layer.LYR_HURT):
-                DoHurt(air.spikeLossPerSecond, 0x02, Audio.SFX.SFX_HIT_SPIKES);
+                DoHurt(air.spikeLossPerSecond, BubbleAir.hurtType.HT_OBSTACLE, Audio.SFX.SFX_HIT_SPIKES);
                 Debug.Log("Obstacle collide");
                 break;
         }
@@ -104,7 +104,7 @@ public class BallController : MonoBehaviour
 
     #region Functions
 
-    public void DoHurt(float hurt, int hurtType, Audio.SFX clip)
+    public void DoHurt(float hurt, BubbleAir.hurtType hurtType, Audio.SFX clip)
     {
         air.DoBlow_Hurt(hurt, hurtType, clip);
     }
