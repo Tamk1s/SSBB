@@ -209,7 +209,7 @@ public class BallController : MonoBehaviour
         {
             LoadScene LS = GM.LS;
             good = (LS != null);
-            if (good){LS.ReloadScene(0f);}
+            if (good){LS.LoadMainMenuDelayed(0f);}
         }
     }
 

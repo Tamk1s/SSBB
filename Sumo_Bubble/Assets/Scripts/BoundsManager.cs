@@ -15,6 +15,7 @@ public class BoundsManager : MonoBehaviour
     private Vector3 topStart, bottomStart, leftStart, rightStart;
 
     private Vector3 finalPosition;
+    private bool ready = false;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -32,14 +33,23 @@ public class BoundsManager : MonoBehaviour
         bottomStart = South.transform.position;
         leftStart = West.transform.position;
         rightStart = East.transform.position;
+        ready = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        North.transform.position = Vector3.Lerp(topStart, finalPosition, Time.time / ShrinkSeconds);
-        South.transform.position = Vector3.Lerp(bottomStart, finalPosition, Time.time / ShrinkSeconds);
-        East.transform.position = Vector3.Lerp(rightStart, finalPosition, Time.time / ShrinkSeconds);
-        West.transform.position = Vector3.Lerp(leftStart, finalPosition, Time.time / ShrinkSeconds);
+        if (ready)
+        {
+            North.transform.position = Vector3.Lerp(topStart, finalPosition, Time.time / ShrinkSeconds);
+            South.transform.position = Vector3.Lerp(bottomStart, finalPosition, Time.time / ShrinkSeconds);
+            East.transform.position = Vector3.Lerp(rightStart, finalPosition, Time.time / ShrinkSeconds);
+            West.transform.position = Vector3.Lerp(leftStart, finalPosition, Time.time / ShrinkSeconds);
+        }
+    }
+
+    public void ToggleReady(bool state)
+    {
+        ready = state;
     }
 }

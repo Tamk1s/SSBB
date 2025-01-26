@@ -80,7 +80,8 @@ public enum ControlledBy
 {
     PLAYER1,
     PLAYER2,
+    MAX = PLAYER2,
     //PLAYER3,
     //PLAYER4,
     ANY_PLAYER
-}
+};

@@ -62,6 +62,10 @@ public class BubbleAir : MonoBehaviour
         {
             Deflate();
         }
+        else
+        {
+            ToggleBoostSFX(false);
+        }
     }
 
     public void ToggleReady(bool state)
