@@ -8,18 +8,23 @@ public class BallPhysics : MonoBehaviour
     //Components
     [Range(0, 1)] public float currentSize;
 
+    public float boostMaxSpeedAddend = 15;
+
     public float extraGravity = 5;
     public LayerMask CollisionMask;
 
     public Preset SmallestPreset;
     public Preset LargestPreset;
-    public Preset CurrentPreset;
     public float maxSpeed = 45;
 
     public BallController ballC;
     public Rigidbody rigid;
     public PhysicMaterial PhysMaterial;
     public Vector2 direction;
+
+    public float boostForce = 60;
+    public float boostStaticFriction = 0;
+    public float boostDynamicFriction = 0;
 
     [ShowNonSerializedField]
     float currentSpeed;
@@ -29,7 +34,6 @@ public class BallPhysics : MonoBehaviour
     {
         public float movementForce = 80;
         public float boostForce;
-        public float boostSpeed;
         public float mass = 3;
         public float angularDrag = 0.05f;
         public float drag = 0;
@@ -40,17 +44,6 @@ public class BallPhysics : MonoBehaviour
 
     //public bool isForward, isBackward, isLeft, isRight;
     private bool ready = false;
-
-    [Button]
-    public void DebugTestPreset()
-    {
-        rigid.mass = CurrentPreset.mass;
-        rigid.angularDrag = CurrentPreset.angularDrag;
-        rigid.drag = CurrentPreset.drag;
-        this.transform.localScale = Vector3.one * CurrentPreset.scale;
-        PhysMaterial.dynamicFriction = CurrentPreset.dynamicFriction;
-        PhysMaterial.staticFriction = CurrentPreset.staticFriction;
-    }
 
     public void Start()
     {
@@ -77,14 +70,32 @@ public class BallPhysics : MonoBehaviour
         rigid.mass = Mathf.Lerp(SmallestPreset.mass, LargestPreset.mass, currentSize);
         rigid.angularDrag = Mathf.Lerp(SmallestPreset.angularDrag, LargestPreset.angularDrag, currentSize);
         rigid.drag = Mathf.Lerp(SmallestPreset.drag, LargestPreset.drag, currentSize);
-        this.transform.localScale = Vector3.one * Mathf.Lerp(SmallestPreset.scale, LargestPreset.scale, currentSize); ;
-        PhysMaterial.dynamicFriction = Mathf.Lerp(SmallestPreset.dynamicFriction, LargestPreset.dynamicFriction, currentSize);
-        PhysMaterial.staticFriction = Mathf.Lerp(SmallestPreset.staticFriction, LargestPreset.staticFriction, currentSize);
+        this.transform.localScale = Vector3.one * Mathf.Lerp(SmallestPreset.scale, LargestPreset.scale, currentSize);
+        if (ballC.isBoosting)
+        {
+            PhysMaterial.dynamicFriction = boostDynamicFriction;
+            PhysMaterial.staticFriction = boostStaticFriction;
+        }
+        else
+        {
+            PhysMaterial.dynamicFriction = Mathf.Lerp(SmallestPreset.dynamicFriction, LargestPreset.dynamicFriction, currentSize);
+            PhysMaterial.staticFriction = Mathf.Lerp(SmallestPreset.staticFriction, LargestPreset.staticFriction, currentSize);
+        }
     }
 
     public void clampSpeed()
     {
-        float max = (maxSpeed + CurrentPreset.boostSpeed);
+        float max;
+        
+        if (ballC.isBoosting)
+        {
+            max = maxSpeed + boostMaxSpeedAddend;
+        }
+        else
+        {
+            max = maxSpeed;
+        }
+        
         if (currentSpeed > max)
         {
             rigid.velocity = rigid.velocity / currentSpeed * maxSpeed;
@@ -95,12 +106,12 @@ public class BallPhysics : MonoBehaviour
     {
         if (ready)
         {
-            float boostForce = 0f;
-            if (ballC.isBoosting) { boostForce = CurrentPreset.boostForce; }
-            float magnitude = CurrentPreset.movementForce + boostForce;
-            Vector3 dir = new Vector3(direction.x, 0, direction.y);
-
-            rigid.AddForce(dir * magnitude);
+            Vector3 moveVector = new Vector3(direction.x, 0, direction.y);
+            rigid.AddForce(moveVector * Mathf.Lerp(SmallestPreset.movementForce, LargestPreset.movementForce, currentSize)); // add basic force
+            if (ballC.isBoosting)
+            {
+                rigid.AddForce(moveVector * boostForce); // add boost force
+            }
             currentSpeed = rigid.velocity.magnitude;
             clampSpeed();
             additionalGravity();
