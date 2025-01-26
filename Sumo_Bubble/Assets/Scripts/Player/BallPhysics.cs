@@ -5,6 +5,7 @@ using NaughtyAttributes;
 
 public class BallPhysics : MonoBehaviour
 {
+    //Components
     [Range(0, 1)] public float currentSize;
 
     public float extraGravity = 5;
@@ -13,9 +14,9 @@ public class BallPhysics : MonoBehaviour
     public Preset SmallestPreset;
     public Preset LargestPreset;
     public Preset CurrentPreset;
-
     public float maxSpeed = 45;
 
+    public BallController ballC;
     public Rigidbody rigid;
     public PhysicMaterial PhysMaterial;
     public Vector2 direction;
@@ -27,14 +28,15 @@ public class BallPhysics : MonoBehaviour
     public class Preset
     {
         public float movementForce = 80;
+        public float boostForce;
+        public float boostSpeed;
         public float mass = 3;
         public float angularDrag = 0.05f;
         public float drag = 0;
         public float scale = 3;
         public float staticFriction;
-        public float dynamicFriction;
+        public float dynamicFriction;        
     }
-
 
     //public bool isForward, isBackward, isLeft, isRight;
 
@@ -71,13 +73,21 @@ public class BallPhysics : MonoBehaviour
 
     public void clampSpeed()
     {
-        if (currentSpeed > maxSpeed)
+        float max = (maxSpeed + CurrentPreset.boostSpeed);
+        if (currentSpeed > max)
+        {
             rigid.velocity = rigid.velocity / currentSpeed * maxSpeed;
+        }
     }
 
     public void FixedUpdate()
     {
-        rigid.AddForce(new Vector3(direction.x, 0, direction.y) * CurrentPreset.movementForce);
+        float boostForce = 0f;
+        if (ballC.isBoosting){boostForce = CurrentPreset.boostForce;}
+        float magnitude = CurrentPreset.movementForce + boostForce;
+        Vector3 dir = new Vector3(direction.x, 0, direction.y);
+
+        rigid.AddForce(dir * magnitude);
         currentSpeed = rigid.velocity.magnitude;
         clampSpeed();
         additionalGravity();
@@ -93,12 +103,12 @@ public class BallPhysics : MonoBehaviour
     {
         if (!Physics.Raycast(this.transform.position, Vector3.up * -1, Mathf.Lerp(SmallestPreset.scale, LargestPreset.scale, currentSize) / 2 + 0.25f, CollisionMask))
         {
-            Debug.Log("Airborn");
+            //Debug.Log("Airborn");
             rigid.AddForce(Vector3.up * -1 * extraGravity, ForceMode.Acceleration);
         }
         else
         {
-            Debug.Log("Grounded");
+            //Debug.Log("Grounded");
         }
     }
 }
