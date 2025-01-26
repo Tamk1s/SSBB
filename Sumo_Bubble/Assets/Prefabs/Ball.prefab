@@ -123,7 +123,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxAir: 100
   MinAir: 0
-  StartingAir: 25
+  StartingAir: 75
   pumpUpIncrement: 15
   airLossPerSecond: 5
   airBoostLossPerSecond: 2.5
