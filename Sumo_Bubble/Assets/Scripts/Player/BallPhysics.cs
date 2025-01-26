@@ -104,6 +104,7 @@ public class BallPhysics : MonoBehaviour
 
     public void FixedUpdate()
     {
+        rigid.isKinematic = !ready;
         if (ready)
         {
             Vector3 moveVector = new Vector3(direction.x, 0, direction.y);

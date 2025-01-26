@@ -69,12 +69,12 @@ MonoBehaviour:
   SceneName: 
   cursor: 1
   CapFonts_TMP:
-  - {fileID: 11400000, guid: 84a7e75940b1a3b4282202698fa53a9d, type: 2}
-  - {fileID: 11400000, guid: 84a7e75940b1a3b4282202698fa53a9d, type: 2}
-  - {fileID: 11400000, guid: 84a7e75940b1a3b4282202698fa53a9d, type: 2}
+  - {fileID: 11400000, guid: 3420a80495bd40f4a988cf64f13e45c5, type: 2}
+  - {fileID: 11400000, guid: 3420a80495bd40f4a988cf64f13e45c5, type: 2}
+  - {fileID: 11400000, guid: 3420a80495bd40f4a988cf64f13e45c5, type: 2}
   - {fileID: 11400000, guid: 6a05cfdbaedf1e64f88ea5d0dbe4e07b, type: 2}
-  - {fileID: 11400000, guid: 1a8f7066e44066f498d91fce4b80fdc5, type: 2}
-  - {fileID: 11400000, guid: 84a7e75940b1a3b4282202698fa53a9d, type: 2}
+  - {fileID: 11400000, guid: 3420a80495bd40f4a988cf64f13e45c5, type: 2}
+  - {fileID: 11400000, guid: 3420a80495bd40f4a988cf64f13e45c5, type: 2}
   CapFonts_OnTop_TMP:
   - {fileID: 11400000, guid: ea1032d0129cc744d909c9cb6a8ba5bc, type: 2}
   - {fileID: 11400000, guid: ea1032d0129cc744d909c9cb6a8ba5bc, type: 2}
