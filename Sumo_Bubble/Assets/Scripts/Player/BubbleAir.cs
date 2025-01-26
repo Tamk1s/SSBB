@@ -45,12 +45,13 @@ public class BubbleAir : MonoBehaviour
     }
 
     [Button]
-    public void PumpUp()
+    public bool PumpUp()
     {       
         float val = (currentAir + pumpUpIncrement);
         bool delta = false;
         currentAir = ChangeAir(val, ref delta);
         if (delta) { audio.sfx_play(Audio.SFX.SFX_PUMP); }
+        return delta;
     }
 
     [Button]

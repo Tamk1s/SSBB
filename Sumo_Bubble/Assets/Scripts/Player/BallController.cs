@@ -16,10 +16,12 @@ public class BallController : MonoBehaviour
     [HideInInspector]
     public bool isBoosting;                 //Is player boosting?
     [HideInInspector]
-    private bool isDead;                     //Is player pumping?
+    public bool isDead;                     //Is player pumping?
+    [HideInInspector]
+    private bool isWinner;                  //Victory?
 
     //get components
-    [HideInInspector]public Animator animator;                  //Animator for sprite
+    public BallAnimator animator;                  //Animator for sprite
     [HideInInspector]public Audio audio;                        //Audio script for sfx
     [HideInInspector]public Rigidbody body;                    
 
@@ -34,7 +36,6 @@ public class BallController : MonoBehaviour
         yield return new WaitForSeconds(.1f);                           //Wait for Bootstrap to update GameState!
 
         //Get stuff here
-        animator = GetComponentInChildren<Animator>();
         audio = this.GetComponent<Audio>();
         body = this.GetComponent<Rigidbody>();
         controls = this.gameObject.AddComponent<PlayerControls>();
@@ -70,16 +71,20 @@ public class BallController : MonoBehaviour
     #endregion
 
     #region Functions
+
     public void ToggleDeath(bool state)
     {
         isDead = state;
+        /*
         if (state)
         {
-            audio.sfx_play(Audio.SFX.SFX_DEATH_PLAYER); 
+            audio.sfx_play(Audio.SFX.SFX_DEATH_PLAYER);
             Toggle_Ctrl_CawBacks(false, NOP, NOP);
             air.ToggleReady(false);
             physics.ToggleReady(false);
+            animator.SetDead(true);
         }
+        */
     }
 
     public void Toggle_Ctrl_CawBacks(bool state, System.Action back, System.Action start)
@@ -120,18 +125,21 @@ public class BallController : MonoBehaviour
     public void onMove(Vector2 axis)
     {
         physics.SetDirectionalInput(axis);
+        animator.SetMovement_Anim(axis);
     }
 
     public void onBoostDown()
     {
         isBoosting = true;
         air.DoBlow();
+        animator.SetBoost(true);
     }
 
     public void onBoostUp()
     {
         isBoosting = false;
         air.StopBlow();
+        animator.SetBoost(false);
     }
 
     public void onBoostHeld()
@@ -141,7 +149,16 @@ public class BallController : MonoBehaviour
 
     public void onPump()
     {
-        air.PumpUp();
+        bool p = air.PumpUp();
+        if (p)
+        {
+            bool inf = animator.GetInflating();
+            if (!inf)
+            {
+                animator.SetInflate();
+                animator.SetInflating(true);
+            }            
+        }
     }
 
     public void onBack()
