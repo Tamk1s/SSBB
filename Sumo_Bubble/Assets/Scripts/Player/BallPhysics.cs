@@ -110,7 +110,7 @@ public class BallPhysics : MonoBehaviour
             rigid.AddForce(moveVector * Mathf.Lerp(SmallestPreset.movementForce, LargestPreset.movementForce, currentSize)); // add basic force
             if (ballC.isBoosting)
             {
-                rigid.AddForce(moveVector * boostForce); // add boost force
+                rigid.AddForce(moveVector * boostForce, ForceMode.Acceleration); // add boost force
             }
             currentSpeed = rigid.velocity.magnitude;
             clampSpeed();
