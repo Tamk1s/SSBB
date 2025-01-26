@@ -91,7 +91,7 @@ return OUT;
 inline float4 edgeFilter(in int px, in int py, v2f i) 
 {
 
-fixed4 color = float4(0.0,0.0);
+fixed4 color = float4(0.0,0.0,0.0,0.0);
 float2 kUV = i.texcoord*256.0f;
 color += tex2D(_MainTex, (kUV + float2(px + 1, py + 1)) * 0.00390625f);
 color += tex2D(_MainTex, (kUV + float2(px    , py + 1)) * 0.00390625f);
