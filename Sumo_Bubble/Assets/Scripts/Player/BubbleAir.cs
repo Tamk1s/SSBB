@@ -11,6 +11,7 @@ public class BubbleAir : MonoBehaviour
     public float StartingAir = 25f;
     public float pumpUpIncrement;
     public float airLossPerSecond = 10f;
+    public float airBoostLossPerSecond = 2.5f;
 
     [Header("Debug")]
     public float currentAir;
@@ -18,6 +19,7 @@ public class BubbleAir : MonoBehaviour
     //Components
     public Audio audio;
     public Audio boostClip;
+    public BallController ballC;
     public BallPhysics physics;
 
     private bool boosting = false;    
@@ -44,7 +46,7 @@ public class BubbleAir : MonoBehaviour
 
     [Button]
     public void PumpUp()
-    {
+    {       
         float val = (currentAir + pumpUpIncrement);
         bool delta = false;
         currentAir = ChangeAir(val, ref delta);
@@ -54,7 +56,7 @@ public class BubbleAir : MonoBehaviour
     [Button]
     public void DoBlow()
     {
-        float val = (currentAir - airLossPerSecond/4f);
+        float val = (currentAir - airBoostLossPerSecond/4f);
         bool delta = false;
         currentAir = ChangeAir(val,ref delta);
         if (delta){ToggleBoostSFX(true);}
@@ -71,11 +73,14 @@ public class BubbleAir : MonoBehaviour
         def *= UnityEngine.Time.deltaTime;
         float val = (currentAir - def);
         bool delta = false;
-        currentAir = ChangeAir(val, ref delta);        
+        currentAir = ChangeAir(val, ref delta);
     }
 
     private float ChangeAir(float val, ref bool change)
     {
+        bool dead = ((val < MinAir) || (val > MaxAir));
+        if (dead){ballC.ToggleDeath(true);}
+
         float newVal = Mathf.Clamp(val, MinAir, MaxAir);
         change = (val != newVal);
         float size = (currentAir / MaxAir);

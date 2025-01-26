@@ -39,6 +39,7 @@ public class BallPhysics : MonoBehaviour
     }
 
     //public bool isForward, isBackward, isLeft, isRight;
+    private bool ready = false;
 
     [Button]
     public void DebugTestPreset()
@@ -51,9 +52,19 @@ public class BallPhysics : MonoBehaviour
         PhysMaterial.staticFriction = CurrentPreset.staticFriction;
     }
 
+    public void Start()
+    {
+        ready = true;
+    }
+
     public void Update()
     {
-        updateSizeSettings();
+        if (ready){updateSizeSettings();}
+    }
+
+    public void ToggleReady(bool state)
+    {
+        ready = state;
     }
 
     public void changeSize(float size)
@@ -82,15 +93,18 @@ public class BallPhysics : MonoBehaviour
 
     public void FixedUpdate()
     {
-        float boostForce = 0f;
-        if (ballC.isBoosting){boostForce = CurrentPreset.boostForce;}
-        float magnitude = CurrentPreset.movementForce + boostForce;
-        Vector3 dir = new Vector3(direction.x, 0, direction.y);
+        if (ready)
+        {
+            float boostForce = 0f;
+            if (ballC.isBoosting) { boostForce = CurrentPreset.boostForce; }
+            float magnitude = CurrentPreset.movementForce + boostForce;
+            Vector3 dir = new Vector3(direction.x, 0, direction.y);
 
-        rigid.AddForce(dir * magnitude);
-        currentSpeed = rigid.velocity.magnitude;
-        clampSpeed();
-        additionalGravity();
+            rigid.AddForce(dir * magnitude);
+            currentSpeed = rigid.velocity.magnitude;
+            clampSpeed();
+            additionalGravity();
+        }
     }
 
     [Button]

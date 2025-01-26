@@ -4,16 +4,19 @@ using UnityEngine;
 
 public class BallController : MonoBehaviour
 {
+    #region Variables
     public PlayerControls controls;
     public ControlledBy controlledBy;                           //Who controls this player?
     public PositionTween positionTween;                         //Generic positionTween. Probably dead Coffee code
     public BallPhysics physics;
     public BubbleAir air;
 
-    //[HideInInspector]
-    public bool isPumping;                     //Is player pumping?
-    //[HideInInspector]
-    public bool isBoosting;                   //Is player boosting?
+    [HideInInspector]
+    public bool isPumping;                  //Is player pumping?
+    [HideInInspector]
+    public bool isBoosting;                 //Is player boosting?
+    [HideInInspector]
+    private bool isDead;                     //Is player pumping?
 
     //get components
     [HideInInspector]public Animator animator;                  //Animator for sprite
@@ -23,7 +26,9 @@ public class BallController : MonoBehaviour
     //Misc state mgmt
     public bool isLocked = false;                                       //Locked movement controls?
     public bool ready = false;                                          //Init/ready semaphore
+    #endregion
 
+    #region StdUnityEvents
     public IEnumerator Start()
     {
         yield return new WaitForSeconds(.1f);                           //Wait for Bootstrap to update GameState!
@@ -59,23 +64,57 @@ public class BallController : MonoBehaviour
         {
             controls.LoadPlayer2Setup();
         }
-
-        //sign up for events
-        controls.MoveAxis += onMove;        //x
-        controls.onA += onBoostDown;
-        controls.onAHeld += onBoostHeld;
-        controls.onAReleased += onBoostUp;
-
-        controls.onX += onPump;
-
-        controls.onBack += onBack;
-        controls.onStart += onStart;
+        Toggle_Ctrl_CawBacks(true, onBack, onStart);
         ready = true;   //We are ready for update/whatever threads
     }
+    #endregion
 
-    public void Update()
+    #region Functions
+    public void ToggleDeath(bool state)
     {
+        isDead = state;
+        if (state)
+        {
+            audio.sfx_play(Audio.SFX.SFX_DEATH_PLAYER); 
+            Toggle_Ctrl_CawBacks(false, NOP, NOP);
+            air.ToggleReady(false);
+            physics.ToggleReady(false);
+        }
+    }
 
+    public void Toggle_Ctrl_CawBacks(bool state, System.Action back, System.Action start)
+    {
+        //sign up for events
+        if (state)
+        {
+            controls.MoveAxis = onMove;        //x
+            controls.onA = onBoostDown;
+            controls.onAHeld = onBoostHeld;
+            controls.onAReleased = onBoostUp;
+            controls.onX = onPump;
+        }
+        else
+        {
+            controls.MoveAxis = NOP;
+            controls.onA = NOP;
+            controls.onAHeld = NOP;
+            controls.onAReleased = NOP;
+            controls.onX = NOP;
+        }
+        controls.onBack = back;
+        controls.onStart = start;
+    }
+    #endregion
+
+    #region ControlCawbacks
+    public void NOP()
+    {
+        //NOP!
+    }
+
+    public void NOP(Vector2 axis)
+    {
+        NOP();
     }
 
     public void onMove(Vector2 axis)
@@ -114,4 +153,5 @@ public class BallController : MonoBehaviour
     {
         Debug.Log("onStart called");
     }
+    #endregion
 }

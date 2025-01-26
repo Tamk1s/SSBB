@@ -363,6 +363,7 @@ MonoBehaviour:
   air: {fileID: 1926095256843545870}
   isPumping: 0
   isBoosting: 0
+  isDead: 0
   animator: {fileID: 0}
   audio: {fileID: 0}
   body: {fileID: 0}
@@ -385,9 +386,11 @@ MonoBehaviour:
   StartingAir: 25
   pumpUpIncrement: 15
   airLossPerSecond: 5
+  airBoostLossPerSecond: 2.5
   currentAir: 25
   audio: {fileID: 8608196106711834456}
   boostClip: {fileID: 1014509650068022781}
+  ballC: {fileID: 6070007311609795788}
   physics: {fileID: 3909487704259644093}
 --- !u!33 &8323318267529137482
 MeshFilter:
