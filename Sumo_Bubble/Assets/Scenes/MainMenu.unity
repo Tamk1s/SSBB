@@ -157,6 +157,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 2445277808715509703, guid: a10383cbf6586094f8d57f9ef1f26527, type: 3}
+      propertyPath: sceneName
+      value: Game Level Building 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3143571813627147973, guid: a10383cbf6586094f8d57f9ef1f26527, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -468,6 +472,10 @@ PrefabInstance:
     - target: {fileID: 2879385792930027918, guid: 9680e43575c3db54f80a811d45244691, type: 3}
       propertyPath: onActivate.persistentCalls.calls.Array.data[3].arguments.Array.data[0].supportedType
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3224670832284174457, guid: 9680e43575c3db54f80a811d45244691, type: 3}
+      propertyPath: sceneName
+      value: Game Level Building 2
       objectReference: {fileID: 0}
     - target: {fileID: 3336140311424257245, guid: 9680e43575c3db54f80a811d45244691, type: 3}
       propertyPath: m_Name
