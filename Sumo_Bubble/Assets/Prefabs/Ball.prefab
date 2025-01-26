@@ -162,7 +162,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 47182b44fc8e641488295041e74ebe82, type: 2}
+  - {fileID: 2100000, guid: 893b226996f212b4bb9a6740912801c1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -708,6 +708,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e020e480cdb77041ae5f08f4933e2f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  positionOffset: {x: 0, y: -11, z: 0}
   anim: {fileID: 273477361574460766}
   SR: {fileID: 233206548460512250}
   Sphere: {fileID: 590368836875993729}

@@ -25,6 +25,9 @@ public class BallAnimator : MonoBehaviour
     */
 
     #region Variables
+
+    public Vector3 positionOffset;
+
     [Header("Components")]
     public Animator anim = null;
     public SpriteRenderer SR = null;
@@ -131,7 +134,7 @@ public class BallAnimator : MonoBehaviour
         if (ready)
         {
             bool good = (Sphere != null);
-            if (good){this.gameObject.transform.position = Sphere.transform.position;}
+            if (good){this.gameObject.transform.position = Sphere.transform.position + (positionOffset * Sphere.transform.localScale.x / 30); }
         }
     }
     #endregion
