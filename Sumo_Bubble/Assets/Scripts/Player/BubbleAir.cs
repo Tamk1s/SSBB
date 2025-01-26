@@ -54,13 +54,10 @@ public class BubbleAir : MonoBehaviour
     [Button]
     public void DoBlow()
     {
-        float val = (currentAir - airLossPerSecond);
+        float val = (currentAir - airLossPerSecond/4f);
         bool delta = false;
         currentAir = ChangeAir(val,ref delta);
-        if (delta)
-        {
-            ToggleBoostSFX(true);
-        }
+        if (delta){ToggleBoostSFX(true);}
     }
 
     public void StopBlow()
@@ -70,8 +67,9 @@ public class BubbleAir : MonoBehaviour
 
     public void Deflate()
     {
-        float def = (airLossPerSecond / 2f);        
-        float val = (currentAir - (UnityEngine.Time.deltaTime * def));
+        float def = (airLossPerSecond);
+        def *= UnityEngine.Time.deltaTime;
+        float val = (currentAir - def);
         bool delta = false;
         currentAir = ChangeAir(val, ref delta);        
     }
@@ -88,6 +86,8 @@ public class BubbleAir : MonoBehaviour
     private void ToggleBoostSFX(bool state)
     {
         boostClip.gameObject.SetActive(state);
+        boosting = state;
+        /*
         if (state)
         {
             if (!boosting)
@@ -101,5 +101,6 @@ public class BubbleAir : MonoBehaviour
             //boostClip.sfx_stop();
             boosting = false;
         }
+        */
     }
 }

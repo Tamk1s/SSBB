@@ -311,6 +311,8 @@ MonoBehaviour:
     m_Bits: 64
   SmallestPreset:
     movementForce: 180
+    boostForce: 60
+    boostSpeed: 15
     mass: 1
     angularDrag: 0
     drag: 0
@@ -319,6 +321,8 @@ MonoBehaviour:
     dynamicFriction: 0
   LargestPreset:
     movementForce: 80
+    boostForce: 26.667
+    boostSpeed: 15
     mass: 3
     angularDrag: 0.05
     drag: 0
@@ -327,6 +331,8 @@ MonoBehaviour:
     dynamicFriction: 1
   CurrentPreset:
     movementForce: 80
+    boostForce: 26.667
+    boostSpeed: 15
     mass: 3
     angularDrag: 0.05
     drag: 0
@@ -334,6 +340,7 @@ MonoBehaviour:
     staticFriction: 0
     dynamicFriction: 0
   maxSpeed: 45
+  ballC: {fileID: 6070007311609795788}
   rigid: {fileID: 2550892744803664858}
   PhysMaterial: {fileID: 13400000, guid: f886297158aeebc4aa6a4f490776b72a, type: 2}
   direction: {x: 0, y: 0}
@@ -377,7 +384,7 @@ MonoBehaviour:
   MinAir: 0
   StartingAir: 25
   pumpUpIncrement: 15
-  airLossPerSecond: 10
+  airLossPerSecond: 5
   currentAir: 25
   audio: {fileID: 8608196106711834456}
   boostClip: {fileID: 1014509650068022781}
