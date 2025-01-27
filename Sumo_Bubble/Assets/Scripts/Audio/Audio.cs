@@ -21,6 +21,7 @@ public class Audio : MonoBehaviour
         SFX_MENU_HIGHLIGHT,                 //Menu higlight SFX
         SFX_MENU_SELECT,                    //Menu select SFX
 
+        SFX_MOVE,                           //Move
         SFX_PUMP,                           //Pump
         SFX_BOOST,                          //Boost
         
@@ -39,6 +40,7 @@ public class Audio : MonoBehaviour
         "MenuHighlight",           //Menu higlight SFX
         "MenuSelect",              //Menu select SFX
 
+        "Move",                    //Bubbles
         "Pump",                    //Pump
         "Deflate",                   //Boost
         
@@ -577,6 +579,11 @@ public class Audio : MonoBehaviour
         audio_bgm.volume = 1f;                                  //Set the volume
         audio_bgm.Play();                                       //Play it                
         //Debug.Log("Now playing song " + song);
+    }
+
+    public void music_changePitch(float pitch)
+    {
+        audio_bgm.pitch = pitch;
     }
 
     /// <summary>Stops currently playing song</summary>

@@ -581,6 +581,14 @@ public static class ExtensionMethods
     }
     #endregion
 
+    #region Color32
+    public static Color32 changeAlpha(this Color32 c, byte alpha)
+    {
+        Color32 result = new Color32(c.r, c.g, c.b, alpha);
+        return result;
+    }
+    #endregion
+
     #region IENUMERABLE
 
     /// Determines whether the collection is null or contains no elements.

@@ -9,12 +9,11 @@ public class BoundsManager : MonoBehaviour
     public GameObject East;
     public GameObject West;
 
-    public float timer = 0f;
+    private float timer = 0f;
     public float ShrinkSeconds = 90;
 
 
     private Vector3 topStart, bottomStart, leftStart, rightStart;
-
     private Vector3 finalPosition;
     private bool ready = false;
 
@@ -53,5 +52,17 @@ public class BoundsManager : MonoBehaviour
     public void ToggleReady(bool state)
     {
         ready = state;
+    }
+
+    public float GetTimer_Countdown()
+    {
+        float result = (ShrinkSeconds - timer);
+        return result;
+    }
+
+    public float GetTimer_Percent()
+    {
+        float result = (timer / ShrinkSeconds);
+        return result;
     }
 }

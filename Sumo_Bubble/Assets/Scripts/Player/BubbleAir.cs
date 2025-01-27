@@ -22,7 +22,7 @@ public class BubbleAir : MonoBehaviour
     public float MaxAir = 100f;
     public float MinAir = 0f;
     public float StartingAir = 25f;
-    public float pumpUpIncrement;    
+    public float pumpUpIncrement;
     public float airLossPerSecond = 10f;
     public float airBoostLossPerSecond = 2.5f;
     public float hurtLossPerSecond = 25f;
@@ -39,12 +39,13 @@ public class BubbleAir : MonoBehaviour
     [Header("Components")]
     public Audio audio;
     public Audio boostClip;
+    public Audio moveClip;
     public BallController ballC;
     public BallPhysics physics;
     #endregion
 
     #region States
-    private bool boosting = false;    
+    private bool boosting = false;
     private bool ready = false;
     #endregion
     #endregion
@@ -58,13 +59,14 @@ public class BubbleAir : MonoBehaviour
 
     public void Update()
     {
+        ToggleMoveSFX(ready);
         if (ready)
         {
             Deflate();
         }
         else
         {
-            ToggleBoostSFX(false);
+            ToggleBoostSFX(false);            
         }
     }
 
@@ -77,7 +79,7 @@ public class BubbleAir : MonoBehaviour
     #region AirFuncs
     [Button]
     public bool PumpUp()
-    {       
+    {
         float val = (currentAir + pumpUpIncrement);
         bool delta = false;
         currentAir = ChangeAir(val, ref delta);
@@ -89,11 +91,11 @@ public class BubbleAir : MonoBehaviour
     [Button]
     public void DoBlow()
     {
-        float val = (currentAir - airBoostLossPerSecond/4f);
+        float val = (currentAir - airBoostLossPerSecond / 4f);
         bool delta = false;
-        currentAir = ChangeAir(val,ref delta);
+        currentAir = ChangeAir(val, ref delta);
         //if (delta){
-            ToggleBoostSFX(true);
+        ToggleBoostSFX(true);
         //}
     }
 
@@ -134,13 +136,68 @@ public class BubbleAir : MonoBehaviour
     private float ChangeAir(float val, ref bool change)
     {
         bool dead = (((val < MinAir) || (val > MaxAir)) && (!ballC.isDead));
-        if (dead){ballC.ToggleDeath(true);}
+        if (dead) { ballC.ToggleDeath(true,true); }
 
         float newVal = Mathf.Clamp(val, MinAir, MaxAir);
         change = (val != newVal);
         float size = (currentAir / MaxAir);
         physics.changeSize(size);
         return newVal;
+    }
+
+    public Color32 ColorLerp(float pcent)
+    {
+        const byte hexMax = 0xFF;
+        const byte hexMid = 0x7F;
+        const byte hexLow = 0x00;
+        const byte maxPts = 0x05;
+        float[] pts = new float[maxPts]
+        {
+            0f,
+            25f,
+            50f,
+            75f,
+            100f,
+        };
+
+        Color32 clrRedMax = new Color32(hexMax, hexLow, hexLow, hexMax);
+        Color32 clrRedMid = new Color32(hexMid, hexLow, hexLow, hexMax);
+        Color clrGreen = new Color32(hexLow, hexMax, hexLow, hexMax);
+
+        float t = 0f;
+        float d = 0f;
+        Color result = Color.white;
+
+        if (pcent < pts[0x01])
+        {
+            pcent = Mathf.Clamp(pcent, 0f, pts[0x01]);
+            t = pcent / pts[0x01];
+            result = Color32.Lerp(clrRedMax, clrRedMid, t);
+        }
+        else if ((pcent >= pts[0x01]) && (pcent <= pts[0x02]))
+        {
+            t = (pcent - pts[0x01]);
+            d = (pts[0x02] - pts[0x01]);
+            t = (t / d);
+            result = Color32.Lerp(clrRedMid, clrGreen, t);
+        }
+        else if ((pcent >= pts[0x02]) && (pcent <= pts[0x03]))
+        {
+            t = (pcent - pts[0x02]);
+            d = (pts[0x03] - pts[0x02]);
+            t = (t / d);
+            result = Color32.Lerp(clrGreen, clrRedMid, t);
+        }
+        else if (pcent > pts[0x03])
+        {
+            pcent = Mathf.Clamp(pcent, pts[0x03], pts[0x04]);
+
+            t = (pcent - pts[0x03]);
+            d = (pts[0x04] - pts[0x03]);
+            t = (t / d);
+            result = Color32.Lerp(clrRedMid, clrRedMax, t);
+        }
+        return result;
     }
 
     private void ToggleBoostSFX(bool state)
@@ -162,6 +219,11 @@ public class BubbleAir : MonoBehaviour
             boosting = false;
         }
         */
+    }
+
+    private void ToggleMoveSFX(bool state)
+    {
+        moveClip.gameObject.SetActive(state);
     }
     #endregion
 }

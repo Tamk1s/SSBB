@@ -25,13 +25,18 @@ public class BallAnimator : MonoBehaviour
     */
 
     #region Variables
-
-    public Vector3 positionOffset;
+    public Vector3 Spr_Player_positionOffset;
+    public Vector3 Spr_PlayerInd_positionOffset;
 
     [Header("Components")]
     public Animator anim = null;
-    public SpriteRenderer SR = null;
+    public BallController ballC = null;
+    public SpriteRenderer Spr_Player = null;
+    public SpriteRenderer Spr_PlayerInd = null;
+    public Sprite[] Spr_PlayerInd_images = new Sprite[BattleManager.maxPlayers];
+    public MeshRenderer sphereMR = null;
     public GameObject Sphere = null;
+    
 
     [Header("Animation")]
     /// <summary>PositionTween</summary>
@@ -131,11 +136,40 @@ public class BallAnimator : MonoBehaviour
 
     public void Update()
     {
-        if (ready)
+        if (ready) { Update_SpritePosns(); }
+    }
+    #endregion
+
+    #region Sprites_Models
+    public void Change_ModelColor(Color32 clr)
+    {
+        const string prpty = "_BaseColor";
+        if (sphereMR != null)
         {
-            bool good = (Sphere != null);
-            if (good){this.gameObject.transform.position = Sphere.transform.position + (positionOffset * Sphere.transform.localScale.x / 30); }
+            if (sphereMR.material != null)
+            {
+                Color c = (Color)(clr);
+                sphereMR.material.SetColor(prpty, c);
+            }
         }
+    }
+
+    private void Update_SpritePosns()
+    {
+        bool good = (Sphere != null);
+        if (good)
+        {
+            Update_Sprite_PlayerInd();
+            this.gameObject.transform.position = Sphere.transform.position + (Spr_Player_positionOffset * Sphere.transform.localScale.x / 30);
+            Spr_PlayerInd.transform.position = Sphere.transform.position + (Spr_PlayerInd_positionOffset * Sphere.transform.localScale.x / 30);
+        }
+    }
+
+    private void Update_Sprite_PlayerInd()
+    {
+        byte index = (byte)(ballC.controlledBy);
+        Sprite spr = Spr_PlayerInd_images[index];
+        Spr_PlayerInd.sprite = spr;
     }
     #endregion
 
@@ -315,7 +349,7 @@ public class BallAnimator : MonoBehaviour
     #region MotionParams
     public void SetSpriteFlipX(bool state)
     {
-        SR.flipX = state;
+        Spr_Player.flipX = state;
     }
 
     /// <summary>Sets the current animator playback speed</summary>

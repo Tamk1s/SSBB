@@ -102,23 +102,22 @@ public class BallController : MonoBehaviour
     }
     #endregion
 
-    #region Functions
-
+    #region Functions    
     public void DoHurt(float hurt, BubbleAir.hurtType hurtType, Audio.SFX clip)
     {
         air.DoBlow_Hurt(hurt, hurtType, clip);
     }
 
-    public void ToggleDeath(bool state)
+    public void ToggleDeath(bool state, bool kill)
     {
-        isDead = state;
+        if (kill){isDead = state;}
         if (state)
         {
-            Audio.sfx_play(Audio.SFX.SFX_DEATH_PLAYER);
+            if (kill){Audio.sfx_play(Audio.SFX.SFX_DEATH_PLAYER);}
             Toggle_Ctrl_CawBacks(false, NOP, NOP);
             air.ToggleReady(false);
             physics.ToggleReady(false);
-            animator.SetDead();
+            if (kill){animator.SetDead();}
         }
     }
 

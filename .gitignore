@@ -73,3 +73,6 @@ Sumo_Bubble/[Aa]ssets/[Ss]treamingAssets/aa/*
 /Sumo_Bubble/Assets/TEMP
 Sumo_Bubble/Assets/TEMP.meta
 Sumo_Bubble/ProjectSettings/Packages/com.unity.probuilder/Settings.json
+
+Sumo_Bubble/Assets/PhysicsMaterial/BallPhysicsMaterial.physicMaterial
+Sumo_Bubble/Assets/PhysicsMaterial/BallPhysicsMaterial 1.physicMaterial
