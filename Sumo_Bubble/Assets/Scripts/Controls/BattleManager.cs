@@ -64,7 +64,7 @@ public class BattleManager : MonoBehaviour
 
     private void MusicTempo()
     {
-        const float fastMusic_percent = (1f / 2f);
+        const float fastMusic_percent = (2f / 3f);
         const float fastMusic_tempoStart = 1f;
         const float fastMusic_tempoEnd = 3f;
 

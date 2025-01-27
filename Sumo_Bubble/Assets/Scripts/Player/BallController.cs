@@ -63,7 +63,7 @@ public class BallController : MonoBehaviour
         {
             controls.LoadPlayer2Setup();
         }
-        Toggle_Ctrl_CawBacks(true, onBack, onStart);
+        Toggle_Ctrl_CawBacks(true);
         ready = true;   //We are ready for update/whatever threads
     }
 
@@ -114,14 +114,14 @@ public class BallController : MonoBehaviour
         if (state)
         {
             if (kill){Audio.sfx_play(Audio.SFX.SFX_DEATH_PLAYER);}
-            Toggle_Ctrl_CawBacks(false, NOP, NOP);
+            Toggle_Ctrl_CawBacks(false);
             air.ToggleReady(false);
             physics.ToggleReady(false);
             if (kill){animator.SetDead();}
         }
     }
 
-    public void Toggle_Ctrl_CawBacks(bool state, System.Action back, System.Action start)
+    public void Toggle_Ctrl_CawBacks(bool state)
     {
         //sign up for events
         if (state)
@@ -131,6 +131,7 @@ public class BallController : MonoBehaviour
             controls.onAHeld = onBoostHeld;
             controls.onAReleased = onBoostUp;
             controls.onX = onPump;
+            controls.onStart = onStart;
         }
         else
         {
@@ -139,9 +140,9 @@ public class BallController : MonoBehaviour
             controls.onAHeld = NOP;
             controls.onAReleased = NOP;
             controls.onX = NOP;
+            controls.onStart = onStart;
         }
-        controls.onBack = back;
-        controls.onStart = start;
+        controls.onBack = onBack;
     }
     #endregion
 
