@@ -141,6 +141,7 @@ public class BallAnimator : MonoBehaviour
     #endregion
 
     #region Sprites_Models
+    /*
     public void Change_ModelColor(Color32 clr)
     {
         const string prpty = "_BaseColor";
@@ -153,6 +154,7 @@ public class BallAnimator : MonoBehaviour
             }
         }
     }
+    */
 
     private void Update_SpritePosns()
     {

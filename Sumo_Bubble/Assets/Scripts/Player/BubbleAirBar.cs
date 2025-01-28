@@ -55,7 +55,7 @@ public class BubbleAirBar : MonoBehaviour
 
         float val = ball.air.currentAir;
         clr = ball.air.ColorLerp(val);
-        ball.animator.Change_ModelColor(clr);
+        //ball.animator.Change_ModelColor(clr);
         //clr = clr.changeAlpha(alpha);
         val /= 100f;
         fillText.text = val.ToString(formatter);

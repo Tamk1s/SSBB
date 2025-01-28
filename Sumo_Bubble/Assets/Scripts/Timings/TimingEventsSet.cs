@@ -71,6 +71,7 @@ public class TimingEventsSet : MonoBehaviour
     //!@
 
     #region LoadScene_Shim
+    /*
     /// <summary>AlphaTween fade in/out the transition sprite (LevelScreen)</summary>
     /// <param name="time">Playback Time/direction (signed)</param>
     public void FadeTransition(float time)
@@ -80,6 +81,7 @@ public class TimingEventsSet : MonoBehaviour
         LevelScreen LS = GetLSc(ref exists);
         if (exists){LS.FadeTransition(time);}
     }
+    */
 
     /// <summary>Loads stored scene in LoadScene singleton, with delay</summary>
     /// <param name="delay">Time delay</param>
@@ -130,6 +132,7 @@ public class TimingEventsSet : MonoBehaviour
         return inst;
     }
 
+    /*
     /// <summary>Get the LevelSceen singleton ref (if exists)</summary>
     /// <param name="exists">LevelScreen exists?</param>
     /// <returns>LevelScreen instance</returns>
@@ -139,6 +142,7 @@ public class TimingEventsSet : MonoBehaviour
         exists = (LSc != null);
         return LSc;
     }
+    */
     #endregion
 }
 
