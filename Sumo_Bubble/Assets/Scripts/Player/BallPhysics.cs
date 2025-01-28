@@ -39,6 +39,7 @@ public class BallPhysics : MonoBehaviour
         public float angularDrag = 0.05f;
         public float drag = 0;
         public float scale = 3;
+        public float playerscale = 25;
         public float staticFriction;
         public float dynamicFriction;        
     }
@@ -72,10 +73,18 @@ public class BallPhysics : MonoBehaviour
         rigid.angularDrag = Mathf.Lerp(SmallestPreset.angularDrag, LargestPreset.angularDrag, currentSize);
         rigid.drag = Mathf.Lerp(SmallestPreset.drag, LargestPreset.drag, currentSize);
 
+        //Scale up 3D sphere
         Vector3 ID = Vector3.one;
         float scalar = GetSizeScalar(SmallestPreset.scale, LargestPreset.scale, currentSize);
         Vector3 scale = GetScaleVtr(ID, scalar);
         this.transform.localScale = scale;
+
+        //Scale up player
+        ID = Vector3.one;
+        scalar = GetSizeScalar(SmallestPreset.playerscale, LargestPreset.playerscale, currentSize);
+        scale = GetScaleVtr(ID, scalar);
+        ballC.animator.Spr_Player.transform.localScale = scale;
+
         if (ballC.isBoosting)
         {
             PhysMaterial.dynamicFriction = boostDynamicFriction;

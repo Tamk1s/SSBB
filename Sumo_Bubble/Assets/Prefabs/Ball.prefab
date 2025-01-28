@@ -66,6 +66,7 @@ MonoBehaviour:
     angularDrag: 0
     drag: 0
     scale: 12
+    playerscale: 25
     staticFriction: 10
     dynamicFriction: 0
   LargestPreset:
@@ -75,6 +76,7 @@ MonoBehaviour:
     angularDrag: 0.05
     drag: 0
     scale: 30
+    playerscale: 62.5
     staticFriction: 0.6
     dynamicFriction: 1
   maxSpeed: 45
