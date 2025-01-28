@@ -91,7 +91,7 @@ public class BubbleAir : MonoBehaviour
     [Button]
     public void DoBlow()
     {
-        float val = (currentAir - airBoostLossPerSecond / 4f);
+        float val = currentAir - (airBoostLossPerSecond * UnityEngine.Time.deltaTime);
         bool delta = false;
         currentAir = ChangeAir(val, ref delta);
         //if (delta){

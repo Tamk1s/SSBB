@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 743692266353672480}
   - component: {fileID: 2893765978518475031}
   - component: {fileID: 5151064523258865258}
+  - component: {fileID: 2798391076228071005}
   - component: {fileID: 2230943071858008263}
   m_Layer: 7
   m_Name: 3DSphere
@@ -126,7 +127,7 @@ MonoBehaviour:
   StartingAir: 50
   pumpUpIncrement: 15
   airLossPerSecond: 5
-  airBoostLossPerSecond: 2.5
+  airBoostLossPerSecond: 7
   hurtLossPerSecond: 10
   spikeLossPerSecond: 10
   currentAir: 50
@@ -257,6 +258,49 @@ MonoBehaviour:
   audio_sfxR: {fileID: 0}
   audio_bgm: {fileID: 0}
   currentSong: 0
+--- !u!114 &2798391076228071005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 590368836875993729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a381918c4585afa4eb524c8b9426f808, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  playbackTime: 1
+  multFact: 1
+  value: 0
+  playbackDirection: 0
+  isPlaying: 0
+  from: {x: 0, y: 0, z: 0}
+  to: {x: 0.001, y: 0.001, z: 0.001}
 --- !u!114 &2230943071858008263
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -962,14 +1006,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Spr_Player_positionOffset: {x: 0, y: -11, z: 0}
-  Spr_PlayerInd_positionOffset: {x: 2.5, y: 35, z: 10}
   anim: {fileID: 273477361574460766}
   ballC: {fileID: 2159869932440259701}
   Spr_Player: {fileID: 233206548460512250}
-  Spr_PlayerInd: {fileID: 5008729297441857454}
-  Spr_PlayerInd_images:
-  - {fileID: -761586035, guid: b08b147de98b8ac41b81a5e12bf29b08, type: 3}
-  - {fileID: -944379144, guid: b08b147de98b8ac41b81a5e12bf29b08, type: 3}
   sphereMR: {fileID: 3581172544822721621}
   Sphere: {fileID: 590368836875993729}
   alphaTween: {fileID: 0}
@@ -1004,7 +1043,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4637964810711772486
 Transform:
   m_ObjectHideFlags: 0

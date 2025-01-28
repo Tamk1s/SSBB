@@ -26,14 +26,14 @@ public class BallAnimator : MonoBehaviour
 
     #region Variables
     public Vector3 Spr_Player_positionOffset;
-    public Vector3 Spr_PlayerInd_positionOffset;
+    //public Vector3 Spr_PlayerInd_positionOffset;
 
     [Header("Components")]
     public Animator anim = null;
     public BallController ballC = null;
     public SpriteRenderer Spr_Player = null;
-    public SpriteRenderer Spr_PlayerInd = null;
-    public Sprite[] Spr_PlayerInd_images = new Sprite[BattleManager.maxPlayers];
+    //public SpriteRenderer Spr_PlayerInd = null;
+    //public Sprite[] Spr_PlayerInd_images = new Sprite[BattleManager.maxPlayers];
     public MeshRenderer sphereMR = null;
     public GameObject Sphere = null;
     
@@ -159,18 +159,20 @@ public class BallAnimator : MonoBehaviour
         bool good = (Sphere != null);
         if (good)
         {
-            Update_Sprite_PlayerInd();
+            //Update_Sprite_PlayerInd();
             this.gameObject.transform.position = Sphere.transform.position + (Spr_Player_positionOffset * Sphere.transform.localScale.x / 30);
-            Spr_PlayerInd.transform.position = Sphere.transform.position + (Spr_PlayerInd_positionOffset * Sphere.transform.localScale.x / 30);
+            //Spr_PlayerInd.transform.position = Sphere.transform.position + (Spr_PlayerInd_positionOffset * Sphere.transform.localScale.x / 30);
         }
     }
 
+    /*
     private void Update_Sprite_PlayerInd()
     {
         byte index = (byte)(ballC.controlledBy);
         Sprite spr = Spr_PlayerInd_images[index];
         Spr_PlayerInd.sprite = spr;
     }
+    */
     #endregion
 
     #region AnimEvents

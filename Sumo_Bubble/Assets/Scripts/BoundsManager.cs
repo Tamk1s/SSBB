@@ -10,8 +10,7 @@ public class BoundsManager : MonoBehaviour
     public GameObject West;
 
     private float timer = 0f;
-    public float ShrinkSeconds = 90;
-
+    public float ShrinkSeconds = 45f;
 
     private Vector3 topStart, bottomStart, leftStart, rightStart;
     private Vector3 finalPosition;

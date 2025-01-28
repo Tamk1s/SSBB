@@ -16,7 +16,8 @@ public class BattleManager : MonoBehaviour
     public BoundsManager BM;
     public LoadScene LS;
 
-    public TextMeshProUGUI[] air = new TextMeshProUGUI[maxPlayers];
+    //public TextMeshProUGUI[] air = new TextMeshProUGUI[maxPlayers];
+    //public BubbleAirBar[] air = new BubbleAirBar[maxPlayers];
     public TextMeshProUGUI timer;
     public bool ready = false;
 
@@ -37,7 +38,7 @@ public class BattleManager : MonoBehaviour
         if (ready)
         {
             UpdateTimer();
-            UpdateAir();
+            //UpdateAir();
             CheckForGameover();
         }
     }
@@ -64,7 +65,7 @@ public class BattleManager : MonoBehaviour
 
     private void MusicTempo()
     {
-        const float fastMusic_percent = (2f / 3f);
+        const float fastMusic_percent = (1f/2f);
         const float fastMusic_tempoStart = 1f;
         const float fastMusic_tempoEnd = 3f;
 
@@ -109,6 +110,7 @@ public class BattleManager : MonoBehaviour
         }
     }
 
+    /*
     private void UpdateAir()
     {
         const string crlf = "\n";
@@ -137,6 +139,7 @@ public class BattleManager : MonoBehaviour
         air[p2].text = P2 + val.ToString(formatter);
         air[p2].color = clr;
     }
+    */
 
     private void ToggleWinner(byte index)
     {

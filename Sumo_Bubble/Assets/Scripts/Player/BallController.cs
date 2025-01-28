@@ -117,7 +117,11 @@ public class BallController : MonoBehaviour
             Toggle_Ctrl_CawBacks(false);
             air.ToggleReady(false);
             physics.ToggleReady(false);
-            if (kill){animator.SetDead();}
+            if (kill)
+            {
+                animator.SetDead();
+                //physics.DoPop_Scaling();
+            }
         }
     }
 

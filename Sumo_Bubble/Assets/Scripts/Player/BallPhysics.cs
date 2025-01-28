@@ -18,6 +18,7 @@ public class BallPhysics : MonoBehaviour
     public float maxSpeed = 45;
 
     public BallController ballC;
+    //public ScaleTween ST;
     public Rigidbody rigid;
     public PhysicMaterial PhysMaterial;
     public Vector2 direction;
@@ -70,7 +71,11 @@ public class BallPhysics : MonoBehaviour
         rigid.mass = Mathf.Lerp(SmallestPreset.mass, LargestPreset.mass, currentSize);
         rigid.angularDrag = Mathf.Lerp(SmallestPreset.angularDrag, LargestPreset.angularDrag, currentSize);
         rigid.drag = Mathf.Lerp(SmallestPreset.drag, LargestPreset.drag, currentSize);
-        this.transform.localScale = Vector3.one * Mathf.Lerp(SmallestPreset.scale, LargestPreset.scale, currentSize);
+
+        Vector3 ID = Vector3.one;
+        float scalar = GetSizeScalar(SmallestPreset.scale, LargestPreset.scale, currentSize);
+        Vector3 scale = GetScaleVtr(ID, scalar);
+        this.transform.localScale = scale;
         if (ballC.isBoosting)
         {
             PhysMaterial.dynamicFriction = boostDynamicFriction;
@@ -82,6 +87,37 @@ public class BallPhysics : MonoBehaviour
             PhysMaterial.staticFriction = Mathf.Lerp(SmallestPreset.staticFriction, LargestPreset.staticFriction, currentSize);
         }
     }
+
+    /*
+    public void DoPop_Scaling()
+    {
+        //Constants        
+        const float time = 1f;
+        const float minScale = 0.001f;
+        Vector3 ID = Vector3.one;
+        Vector3 minScaleVtr = new Vector3(minScale, minScale, minScale);
+
+        float scalar = GetSizeScalar(SmallestPreset.scale, LargestPreset.scale, currentSize);
+        Vector3 scale = GetScaleVtr(ID, scalar);
+
+        ST.from = scale;
+        ST.to = minScaleVtr;
+        ST.playbackTime = time;
+        ST.PlayForward();
+    }
+    */
+
+    private float GetSizeScalar(float scaleA, float scaleB, float t)
+    {
+        float scalar = Mathf.Lerp(scaleA, scaleB, t);
+        return scalar;
+    }
+
+    private Vector3 GetScaleVtr(Vector3 ID, float scalar)
+    {
+        Vector3 scale = ID * scalar;
+        return scale;
+    }    
 
     public void clampSpeed()
     {
@@ -125,7 +161,7 @@ public class BallPhysics : MonoBehaviour
         direction = dir;
     }
 
-    void additionalGravity()
+    private void additionalGravity()
     {
         if (!Physics.Raycast(this.transform.position, Vector3.up * -1, Mathf.Lerp(SmallestPreset.scale, LargestPreset.scale, currentSize) / 2 + 0.25f, CollisionMask))
         {

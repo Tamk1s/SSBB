@@ -238,18 +238,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 3420a80495bd40f4a988cf64f13e45c5, type: 2}
     - target: {fileID: 1152337000489176127, guid: 9680e43575c3db54f80a811d45244691, type: 3}
-      propertyPath: m_fontColor.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1152337000489176127, guid: 9680e43575c3db54f80a811d45244691, type: 3}
-      propertyPath: m_fontColor.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1152337000489176127, guid: 9680e43575c3db54f80a811d45244691, type: 3}
-      propertyPath: m_fontColor.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1152337000489176127, guid: 9680e43575c3db54f80a811d45244691, type: 3}
       propertyPath: m_sharedMaterial
       value: 
       objectReference: {fileID: 7106936561383428943, guid: 3420a80495bd40f4a988cf64f13e45c5, type: 2}
@@ -273,18 +261,6 @@ PrefabInstance:
       propertyPath: m_fontAsset
       value: 
       objectReference: {fileID: 11400000, guid: 3420a80495bd40f4a988cf64f13e45c5, type: 2}
-    - target: {fileID: 1485445838790327435, guid: 9680e43575c3db54f80a811d45244691, type: 3}
-      propertyPath: m_fontColor.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1485445838790327435, guid: 9680e43575c3db54f80a811d45244691, type: 3}
-      propertyPath: m_fontColor.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1485445838790327435, guid: 9680e43575c3db54f80a811d45244691, type: 3}
-      propertyPath: m_fontColor.r
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1485445838790327435, guid: 9680e43575c3db54f80a811d45244691, type: 3}
       propertyPath: m_sharedMaterial
       value: 
@@ -333,18 +309,6 @@ PrefabInstance:
       propertyPath: m_fontAsset
       value: 
       objectReference: {fileID: 11400000, guid: 3420a80495bd40f4a988cf64f13e45c5, type: 2}
-    - target: {fileID: 2660243460803753149, guid: 9680e43575c3db54f80a811d45244691, type: 3}
-      propertyPath: m_fontColor.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2660243460803753149, guid: 9680e43575c3db54f80a811d45244691, type: 3}
-      propertyPath: m_fontColor.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2660243460803753149, guid: 9680e43575c3db54f80a811d45244691, type: 3}
-      propertyPath: m_fontColor.r
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2660243460803753149, guid: 9680e43575c3db54f80a811d45244691, type: 3}
       propertyPath: m_sharedMaterial
       value: 
@@ -485,18 +449,6 @@ PrefabInstance:
       propertyPath: m_fontAsset
       value: 
       objectReference: {fileID: 11400000, guid: 3420a80495bd40f4a988cf64f13e45c5, type: 2}
-    - target: {fileID: 4821649317596045583, guid: 9680e43575c3db54f80a811d45244691, type: 3}
-      propertyPath: m_fontColor.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4821649317596045583, guid: 9680e43575c3db54f80a811d45244691, type: 3}
-      propertyPath: m_fontColor.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4821649317596045583, guid: 9680e43575c3db54f80a811d45244691, type: 3}
-      propertyPath: m_fontColor.r
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4821649317596045583, guid: 9680e43575c3db54f80a811d45244691, type: 3}
       propertyPath: m_sharedMaterial
       value: 
@@ -639,15 +591,15 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2802216421205760717, guid: 9680e43575c3db54f80a811d45244691, type: 3}
       insertIndex: -1
       addedObject: {fileID: 916241473}
+    - targetCorrespondingSourceObject: {fileID: 264140306415467344, guid: 9680e43575c3db54f80a811d45244691, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 942353462}
     - targetCorrespondingSourceObject: {fileID: 6043488839221973670, guid: 9680e43575c3db54f80a811d45244691, type: 3}
       insertIndex: -1
       addedObject: {fileID: 916241475}
     - targetCorrespondingSourceObject: {fileID: 721078142382051731, guid: 9680e43575c3db54f80a811d45244691, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2097723592}
-    - targetCorrespondingSourceObject: {fileID: 264140306415467344, guid: 9680e43575c3db54f80a811d45244691, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 942353462}
   m_SourcePrefab: {fileID: 100100000, guid: 9680e43575c3db54f80a811d45244691, type: 3}
 --- !u!1 &916241470 stripped
 GameObject:
